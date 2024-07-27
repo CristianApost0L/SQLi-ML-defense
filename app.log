@@ -1,0 +1,40 @@
+INFO:root:Username: cristian@gmial.com, Password: 1234
+INFO:werkzeug:127.0.0.1 - - [27/Jul/2024 20:40:47] "POST /register HTTP/1.1" 200 -
+INFO:root:Username: cristian@gmial.com, Password: 12345
+INFO:werkzeug:127.0.0.1 - - [27/Jul/2024 20:41:10] "POST /register HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:root:Username: cristian@gmial.com, Password: 12345
+INFO:werkzeug:127.0.0.1 - - [27/Jul/2024 20:42:44] "POST /register HTTP/1.1" 200 -
+INFO:root:Username: cristian@gmial.com, Password: 1234
+INFO:werkzeug:127.0.0.1 - - [27/Jul/2024 20:42:45] "POST /register HTTP/1.1" 200 -
+INFO:root:Username: cristian@gmail.com, Password: 1234
+INFO:werkzeug:127.0.0.1 - - [27/Jul/2024 20:43:04] "POST /register HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:root:Username: cristian@gmial.com, Password: 1234
+INFO:root:Query: INSERT INTO users (username, password) VALUES (cristian@gmial.com,1234)
+INFO:werkzeug:127.0.0.1 - - [27/Jul/2024 20:44:46] "POST /register HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:root:Username: cristian@gmial.com, Password: 1234
+INFO:root:Query: INSERT INTO users (username, password) VALUES ('cristian@gmial.com','1234)
+INFO:werkzeug:127.0.0.1 - - [27/Jul/2024 20:45:29] "POST /register HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:root:Username: cristian@gmial.com, Password: 1234
+INFO:root:Query: INSERT INTO users (username, password) VALUES ('cristian@gmial.com','1234')
+INFO:werkzeug:127.0.0.1 - - [27/Jul/2024 20:46:09] "POST /register HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Jul/2024 21:05:24] "POST /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Jul/2024 21:05:44] "GET /logout HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Jul/2024 21:05:52] "POST /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Jul/2024 21:05:55] "POST /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Jul/2024 21:06:08] "GET /logout HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Jul/2024 21:06:36] "POST /exec HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Jul/2024 21:07:12] "POST /exec HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Jul/2024 21:07:29] "POST /exec HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Jul/2024 21:07:52] "POST /exec HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Jul/2024 21:08:10] "POST /exec HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Jul/2024 21:09:38] "POST /exec HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Jul/2024 21:10:08] "POST /exec HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Jul/2024 21:10:19] "POST /exec HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Jul/2024 21:11:04] "POST /exec HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Jul/2024 21:11:39] "POST /exec HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Jul/2024 21:12:56] "POST /exec HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Jul/2024 21:13:30] "POST /exec HTTP/1.1" 200 -

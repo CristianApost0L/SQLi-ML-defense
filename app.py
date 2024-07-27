@@ -2,6 +2,7 @@ from flask import Flask, request, render_template, flash, session
 import sqlite3
 import os
 from flags import flags
+import logging
 
 # creazione di un dizionario dalla directory sol, sono le challange da fare
 solves = {}
@@ -70,7 +71,16 @@ def register():
         username = request.form['username']
         password = request.form['password']
 
-        query = "INSERT INTO users (username, password) VALUES ('" + username + "','" + password + ")"
+        query = "INSERT INTO users (username, password) VALUES ('" + username + "','" + password + "')"
+
+        # Logging configuration
+        logging.basicConfig(filename='app.log', level=logging.INFO)
+
+        # Log username and password
+        logging.info(f"Username: {username}, Password: {password}")
+
+        # Query execution
+        logging.info(f"Query: {query}")
 
         conn = sqlite3.connect("file:preCC_SQL_injection.db", uri=True)
         cursor = conn.cursor()

@@ -67,9 +67,11 @@ player_data = [["Giulia", "1", "ubqwheewe"],
                 ["dp_1", "5", "andsnf'"],
                 ["Chino", "6", "i0s0ifd"],
                 ["ricchi24", "7", "aksndaenae"],
-                ["maitai", "8", "qowjqpN+ù"],
-                ["salvatoreabello@gmail.com", "15", "ADNSKNFNkan"],
-                ["cristian@gmal.com", "14", "QNNEWJ0J9jojq"]]
+                ["maitai", "8", "qowjqpN+ù"]]
+
+
+user_data = [["salvatoreabello@gmail.com", "ADNSKNFNkan"],
+                ["cristian@gmal.com", "QNNEWJ0J9jojq"]]
 
 ranking_data = [["20", "Loldemort", "2", "2"]]
 
@@ -89,6 +91,12 @@ for i in ranking_data:
     cursor.execute("""
         INSERT INTO rankings (position, username, playerID, teamID)
         VALUES (?, ?, ?, ?)
+    """, i)
+
+for i in user_data:
+    cursor.execute("""
+        INSERT INTO users (username, password)
+        VALUES (?, ?)
     """, i)
 
 # Da notare che tra le tabelle presenti nel DB è presente sqlite_sequence che tiene traccia delle tabelle che usano

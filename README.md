@@ -21,6 +21,19 @@ For windows > venv\Scripts\activate
 For linux > source ./venv/bin/activate
 ```
 
+## Install Flask
+Once the virtual environment is activated, install Flask:
+
+```c
+pip install Flask
+```
+
 ### Start Application
+
+Run the Flask application with the following command:
+
+```c
+python app.py
+```
 
 Open your browser and follow the link  [http://localhost:3000] (http://localhost:3000).
