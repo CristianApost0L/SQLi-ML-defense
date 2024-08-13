@@ -1,5 +1,27 @@
 import sqlite3
 
+
+# Collegamento al database
+conn = sqlite3.connect('preCC_SQL_injection.db')
+cursor = conn.cursor()
+
+# Funzione per cancellare tutti i dati da tutte le tabelle
+def clear_all_tables():
+    cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")
+    tables = cursor.fetchall()
+
+    for table_name in tables:
+        cursor.execute(f'DELETE FROM {table_name[0]};')
+        conn.commit()
+        print(f'Dati cancellati dalla tabella {table_name[0]}')
+
+# Eseguire la funzione
+clear_all_tables()
+
+# Chiudere la connessione
+conn.close()
+
+
 conn = sqlite3.connect("preCC_SQL_injection.db")
 cursor = conn.cursor()
 cursor.execute("""
@@ -18,7 +40,6 @@ cursor.execute("""
     CREATE TABLE IF NOT EXISTS players (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         username TEXT NOT NULL,
-        password TEXT NOT NULL,
         teamID INTEGER NOT NULL,
         FOREIGN KEY(teamID) REFERENCES teams(id)
     )
@@ -60,20 +81,35 @@ team_data = [["a:b", "about:blankets", "22", "1", "413"],
                 ["z:h", "ZenHack", "220", "14", "133"],
                 ["pwn0tt1", "Pwnzer0tt1", "230", "15", "130"]] 
 
-player_data = [["Giulia", "1", "ubqwheewe"],
-                ["Loldemort", "2", "absdubedb"],
-                ["matpro", "3", "ane9uw94r"],
-                ["C0mm4nd_", "4", "qojw3ur32hr"],
-                ["dp_1", "5", "andsnf'"],
-                ["Chino", "6", "i0s0ifd"],
-                ["ricchi24", "7", "aksndaenae"],
-                ["maitai", "8", "qowjqpN+ù"]]
+player_data = [["Giulia", "1"],
+                ["Loldemort", "2"],
+                ["matpro", "3"],
+                ["C0mm4nd_", "4"],
+                ["dp_1", "5"],
+                ["Chino", "6"],
+                ["ricchi24", "7"],
+                ["maitai", "8"]]
 
 
 user_data = [["salvatoreabello@gmail.com", "ADNSKNFNkan"],
-                ["cristian@gmal.com", "QNNEWJ0J9jojq"]]
+                ["cristian@gmail.com", "QNNEWJ0J9jojq"]]
 
-ranking_data = [["20", "Loldemort", "2", "2"]]
+ranking_data = [
+    ["20", "Loldemort", "2", "2"],
+    ["5", "Giulia", "1", "1"],
+    ["15", "matpro", "3", "3"],
+    ["10", "C0mm4nd_", "4", "4"],
+    ["25", "dp_1", "5", "5"],
+    ["30", "Chino", "6", "6"],
+    ["35", "ricchi24", "7", "7"],
+    ["40", "maitai", "8", "8"],
+    ["22", "Giulia", "1", "2"],
+    ["50", "matpro", "3", "10"],  
+    ["60", "C0mm4nd_", "4", "12"],  
+    ["65", "dp_1", "5", "13"],    
+    ["70", "Chino", "6", "14"],   
+    ["75", "ricchi24", "7", "15"],
+]
 
 for i in team_data:
     cursor.execute("""
@@ -83,8 +119,8 @@ for i in team_data:
 
 for i in player_data:
     cursor.execute("""
-        INSERT INTO players (username, teamID, password)
-        VALUES (?, ?, ?)
+        INSERT INTO players (username, teamID)
+        VALUES (?, ?)
     """, i)
 
 for i in ranking_data:

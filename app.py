@@ -83,8 +83,7 @@ def favicon():
 # per ogni root /exec, dopo aver cliccato il bottone ricerca, verrà reinderizzata la stessa pagina eseguita una query verso il DBMS
 @app.route('/exec', methods=['POST'])
 def search():
-    # query da eseguire, si compone di una SELECT sulla tabella Teams con una ricerca basata sul nome dato in input dall'utente.
-    # Rapprensenta la nostra vulnerabilità.
+    # Query da eseguire, si compone di una SELECT sulla tabella Teams con una ricerca basata sul nome dato in input dall'utente.
     query = "SELECT id, name, points FROM teams WHERE name = '" + request.form['query'] + "'"
 
     # Logging configuration
@@ -96,7 +95,7 @@ def search():
 
     logging.info(f" Status query: {res}")
     
-    conn = sqlite3.connect("file:preCC_SQL_injection.db?mode=ro", uri=True) #inizializzazione della connessione con il database
+    conn = sqlite3.connect("file:preCC_SQL_injection.db?mode=ro", uri=True) # inizializzazione della connessione con il database
     cursor = conn.cursor() # ci permette di eseguire la query nel nostro DB in modalità di sola lettura
 
     try:
@@ -142,11 +141,11 @@ def register():
         password = request.form['password']
 
         # Esecuzione errata perché permette l'esecuzione di più statament
-        #query = "INSERT INTO users (username, password) VALUES ('" + username + "','" + password + "')"
+        query = "INSERT INTO users (username, password) VALUES ('" + username + "','" + password + "')"
 
         # Esecuzione corretta perché evita l'esecuzione di più statament
-        query = "INSERT INTO users (username, password) VALUES (?, ?)"
-        params = (username, password)
+        #query = "INSERT INTO users (username, password) VALUES (?, ?)"
+        #params = (username, password)
 
         # Logging configuration
         logging.basicConfig(filename='app.log', level=logging.INFO)
@@ -166,10 +165,10 @@ def register():
         
         try:
             # Permette di esequire più statement come ');DELETE FROM users WHERE 1=1; INSERT INTO users VALUES ('sei stato','fregato') --
-            #cursor.executescript(query)
+            cursor.executescript(query)
 
             # Esecuzione corretta perché evita l'esecuzione di più statament
-            cursor.execute(query, params)
+            #cursor.execute(query, params)
 
             conn.commit()
             conn.close()
