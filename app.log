@@ -70,3 +70,175 @@ INFO:werkzeug:127.0.0.1 - - [13/Aug/2024 16:48:39] "POST /exec HTTP/1.1" 200 -
 INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
 INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
 INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:root: Query: SELECT id, name, points FROM teams WHERE name = '' UNION SELECT sqlite\_version(); --'
+INFO:root: Status query: SQL Injection Attack is there
+INFO:werkzeug:127.0.0.1 - - [17/Aug/2024 20:42:20] "POST /exec HTTP/1.1" 200 -
+INFO:root: Query: SELECT id, name, points FROM teams WHERE name = '' UNION SELECT sqlite_version(); --'
+INFO:root: Status query: SQL Injection Attack is there
+INFO:werkzeug:127.0.0.1 - - [17/Aug/2024 20:42:31] "POST /exec HTTP/1.1" 200 -
+INFO:root: Query: SELECT id, name, points FROM teams WHERE name = '' UNION SELECT 1,sqlite\_version(); --'
+INFO:root: Status query: SQL Injection Attack is there
+INFO:werkzeug:127.0.0.1 - - [17/Aug/2024 20:42:48] "POST /exec HTTP/1.1" 200 -
+INFO:root: Query: SELECT id, name, points FROM teams WHERE name = '' UNION SELECT 1,2,sqlite_version(); --'
+INFO:root: Status query: SQL Injection Attack is there
+INFO:werkzeug:127.0.0.1 - - [17/Aug/2024 20:43:00] "POST /exec HTTP/1.1" 200 -
+INFO:root: Query: SELECT id, name, points FROM teams WHERE name = '' UNION SELECT 1,2,sqlite_version(); --'
+INFO:root: Status query: SQL Injection Attack is there
+INFO:werkzeug:127.0.0.1 - - [17/Aug/2024 22:16:39] "POST /exec HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [17/Aug/2024 22:16:40] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:root: Query: SELECT id, name, points FROM teams WHERE name = '1' or 1=1 -- '
+INFO:root: Status query: SQL Injection Attack is there
+INFO:werkzeug:127.0.0.1 - - [17/Aug/2024 22:17:00] "POST /exec HTTP/1.1" 200 -
+INFO:root: Query: SELECT id, name, points FROM teams WHERE name = '1' or 1=1 -- '
+INFO:root: Status query: SQL Injection Attack is there
+INFO:werkzeug:127.0.0.1 - - [17/Aug/2024 22:17:19] "POST /exec HTTP/1.1" 200 -
+INFO:root: Query: SELECT id, name, points FROM teams WHERE name = '1' or 1=1 -- '
+INFO:root: Status query: SQL Injection Attack is there
+INFO:werkzeug:127.0.0.1 - - [17/Aug/2024 22:17:43] "POST /exec HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [17/Aug/2024 22:17:43] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:root: Query: SELECT id, name, points FROM teams WHERE name = '1' or 1=1 -- '
+INFO:root: Status query: SQL Injection Attack is there
+INFO:werkzeug:127.0.0.1 - - [17/Aug/2024 22:21:52] "POST /exec HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [17/Aug/2024 22:21:52] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:root: Query: SELECT id, name, points FROM teams WHERE name = '1' or 1=1 -- '
+INFO:root: Status query: SQL Injection Attack is there
+INFO:werkzeug:127.0.0.1 - - [17/Aug/2024 22:23:37] "POST /exec HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [17/Aug/2024 22:23:37] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:root: Query: SELECT id, name, points FROM teams WHERE name = '1' or 1=1 -- '
+INFO:root: Status query: SQL Injection Attack is there
+INFO:werkzeug:127.0.0.1 - - [17/Aug/2024 22:24:07] "POST /exec HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [17/Aug/2024 22:24:07] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:root: Query: SELECT id, name, points FROM teams WHERE name = '1' or 1=1 -- '
+INFO:root: Status query: SQL Injection Attack is there
+INFO:werkzeug:127.0.0.1 - - [17/Aug/2024 22:24:58] "POST /exec HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [17/Aug/2024 22:24:58] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:root: Query: SELECT id, name, points FROM teams WHERE name = '1' or 1=1 -- '
+INFO:root: Status query: SQL Injection Attack is there
+INFO:werkzeug:127.0.0.1 - - [17/Aug/2024 22:26:10] "POST /exec HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [17/Aug/2024 22:26:10] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:root:Username: cristian@gmail.com, Password: QNNEWJ0J9jojq
+INFO:root:Query: INSERT INTO users (username, password) VALUES ('cristian@gmail.com','QNNEWJ0J9jojq')
+INFO:root: Status query: SQL Injection Attack is there
+INFO:werkzeug:127.0.0.1 - - [17/Aug/2024 22:26:18] "POST /login HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:root:Username: cristian@gmail.com, Password: QNNEWJ0J9jojq
+INFO:root:Query: INSERT INTO users (username, password) VALUES ('cristian@gmail.com','QNNEWJ0J9jojq')
+INFO:root: Status query: SQL Injection Attack is there
+INFO:werkzeug:127.0.0.1 - - [17/Aug/2024 22:32:11] "POST /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [17/Aug/2024 22:32:11] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [17/Aug/2024 22:32:19] "GET /logout HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [17/Aug/2024 22:33:02] "GET /logout HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [17/Aug/2024 22:33:02] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:root:Username: cristian@gmail.com, Password: QNNEWJ0J9jojq
+INFO:root:Query: INSERT INTO users (username, password) VALUES ('cristian@gmail.com','QNNEWJ0J9jojq')
+INFO:root: Status query: SQL Injection Attack is there
+INFO:werkzeug:127.0.0.1 - - [17/Aug/2024 22:33:06] "POST /login HTTP/1.1" 200 -
+INFO:root:Username: cristian@gmail.com, Password: QNNEWJ0J9jojq
+INFO:root:Query: INSERT INTO users (username, password) VALUES ('cristian@gmail.com','QNNEWJ0J9jojq')
+INFO:root: Status query: SQL Injection Attack is there
+INFO:werkzeug:127.0.0.1 - - [17/Aug/2024 22:34:29] "POST /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [17/Aug/2024 22:34:30] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:root:Username: cristian@gmail.com, Password: QNNEWJ0J9jojq
+INFO:root:Query: INSERT INTO users (username, password) VALUES ('cristian@gmail.com','QNNEWJ0J9jojq')
+INFO:root: Status query: SQL Injection Attack is there
+INFO:werkzeug:127.0.0.1 - - [17/Aug/2024 22:35:03] "POST /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [17/Aug/2024 22:35:03] "GET /favicon.ico HTTP/1.1" 200 -
+INFO:root:Username: cristian@gmail.com, Password: QNNEWJ0J9jojq
+INFO:root:Query: INSERT INTO users (username, password) VALUES ('cristian@gmail.com','QNNEWJ0J9jojq')
+INFO:root: Status query: SQL Injection Attack is there
+INFO:werkzeug:127.0.0.1 - - [17/Aug/2024 22:37:12] "POST /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [17/Aug/2024 22:37:12] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:root:Username: cristian@gmail.com, Password: QNNEWJ0J9jojq
+INFO:root:Query: INSERT INTO users (username, password) VALUES ('cristian@gmail.com','QNNEWJ0J9jojq')
+INFO:root: Status query: SQL Injection Attack is there
+INFO:werkzeug:127.0.0.1 - - [17/Aug/2024 22:40:11] "POST /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [17/Aug/2024 22:40:11] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:root:Username: cristian@gmail.com, Password: QNNEWJ0J9jojq
+INFO:root:Query: INSERT INTO users (username, password) VALUES ('cristian@gmail.com','QNNEWJ0J9jojq')
+INFO:root: Status query: SQL Injection Attack is there
+INFO:werkzeug:127.0.0.1 - - [17/Aug/2024 22:43:11] "POST /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [17/Aug/2024 22:43:11] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:root:Username: cristian@gmail.com, Password: QNNEWJ0J9jojq
+INFO:root:Query: INSERT INTO users (username, password) VALUES ('cristian@gmail.com','QNNEWJ0J9jojq')
+INFO:root: Status query: SQL Injection Attack is there
+INFO:werkzeug:127.0.0.1 - - [17/Aug/2024 22:43:33] "POST /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [17/Aug/2024 22:43:33] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [17/Aug/2024 22:43:37] "GET /logout HTTP/1.1" 200 -
+INFO:root:Username: cristian@gmail.com, Password: QNNEWJ0J9jojq
+INFO:root:Query: INSERT INTO users (username, password) VALUES ('cristian@gmail.com','QNNEWJ0J9jojq')
+INFO:root: Status query: SQL Injection Attack is there
+INFO:werkzeug:127.0.0.1 - - [17/Aug/2024 22:43:40] "POST /login HTTP/1.1" 200 -
+INFO:root: Query: SELECT id, name, points FROM teams WHERE name = '1' or 1=1 -- '
+INFO:root: Status query: SQL Injection Attack is there
+INFO:werkzeug:127.0.0.1 - - [17/Aug/2024 22:44:52] "POST /exec HTTP/1.1" 200 -
+INFO:root: Query: SELECT id, name, points FROM teams WHERE name = '1' or 1=1 -- '
+INFO:root: Status query: SQL Injection Attack is there
+INFO:werkzeug:127.0.0.1 - - [17/Aug/2024 22:46:32] "POST /exec HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [17/Aug/2024 22:46:32] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:root: Query: SELECT id, name, points FROM teams WHERE name = 'about:blankets'
+INFO:root: Status query: No SQL injection is there
+INFO:werkzeug:127.0.0.1 - - [17/Aug/2024 22:46:38] "POST /exec HTTP/1.1" 200 -
+INFO:root: Query: SELECT id, name, points FROM teams WHERE name = 'about:blankets'
+INFO:root: Status query: No SQL injection is there
+INFO:werkzeug:127.0.0.1 - - [17/Aug/2024 22:47:23] "POST /exec HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [17/Aug/2024 22:47:23] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:root: Query: SELECT id, name, points FROM teams WHERE name = 'about:blankets'
+INFO:root: Status query: No SQL injection is there
+INFO:werkzeug:127.0.0.1 - - [17/Aug/2024 22:48:32] "POST /exec HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [17/Aug/2024 22:48:33] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:root: Query: SELECT id, name, points FROM teams WHERE name = 'about:blankets'
+INFO:root: Status query: No SQL injection is there
+INFO:werkzeug:127.0.0.1 - - [17/Aug/2024 22:50:37] "POST /exec HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [17/Aug/2024 22:50:37] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:root: Query: SELECT id, name, points FROM teams WHERE name = 'about:blankets'
+INFO:root: Status query: No SQL injection is there
+INFO:werkzeug:127.0.0.1 - - [17/Aug/2024 22:50:48] "POST /exec HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [17/Aug/2024 22:50:49] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:root: Query: SELECT id, name, points FROM teams WHERE name = 'about:blankets'
+INFO:root: Status query: No SQL injection is there
+INFO:werkzeug:127.0.0.1 - - [17/Aug/2024 22:51:59] "POST /exec HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [17/Aug/2024 22:51:59] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:root: Query: SELECT id, name, points FROM teams WHERE name = 'about:blankets'
+INFO:root: Status query: No SQL injection is there
+INFO:werkzeug:127.0.0.1 - - [17/Aug/2024 22:52:29] "POST /exec HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [17/Aug/2024 22:52:29] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:root: Query: SELECT id, name, points FROM teams WHERE name = 'about:blankets'
+INFO:root: Status query: No SQL injection is there
+INFO:werkzeug:127.0.0.1 - - [17/Aug/2024 22:54:11] "POST /exec HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [17/Aug/2024 22:54:11] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:root: Query: SELECT id, name, points FROM teams WHERE name = 'about:blankets'
+INFO:root: Status query: No SQL injection is there
+INFO:werkzeug:127.0.0.1 - - [17/Aug/2024 22:55:53] "POST /exec HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [17/Aug/2024 22:55:53] "[36mGET /favicon.ico HTTP/1.1[0m" 304 -
+INFO:root: Query: SELECT id, name, points FROM teams WHERE name = 'about:blankets'
+INFO:root: Status query: No SQL injection is there
+INFO:werkzeug:127.0.0.1 - - [17/Aug/2024 22:56:13] "POST /exec HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [17/Aug/2024 22:56:14] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:root: Query: SELECT id, name, points FROM teams WHERE name = 'about:blankets'
+INFO:root: Status query: No SQL injection is there
+INFO:werkzeug:127.0.0.1 - - [17/Aug/2024 22:56:43] "POST /exec HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [17/Aug/2024 22:56:43] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [17/Aug/2024 22:56:47] "GET /logout HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [17/Aug/2024 22:56:47] "GET /register HTTP/1.1" 200 -
+INFO:root:Username: cristian@gmail.com, Password: QNNEWJ0J9jojq
+INFO:root:Query: INSERT INTO users (username, password) VALUES ('cristian@gmail.com','QNNEWJ0J9jojq')
+INFO:root: Status query: SQL Injection Attack is there
+INFO:werkzeug:127.0.0.1 - - [17/Aug/2024 22:56:53] "POST /login HTTP/1.1" 200 -
+INFO:root:Username: cristian@gmail.com, Password: QNNEWJ0J9jojq
+INFO:root:Query: INSERT INTO users (username, password) VALUES ('cristian@gmail.com','QNNEWJ0J9jojq')
+INFO:root: Status query: SQL Injection Attack is there
+INFO:werkzeug:127.0.0.1 - - [17/Aug/2024 23:05:16] "POST /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [17/Aug/2024 23:05:16] "[36mGET /favicon.ico HTTP/1.1[0m" 304 -
+INFO:root:Username: cristian@gmail.com, Password: QNNEWJ0J9jojq
+INFO:root:Query: INSERT INTO users (username, password) VALUES ('cristian@gmail.com','QNNEWJ0J9jojq')
+INFO:root: Status query: SQL Injection Attack is there
+INFO:werkzeug:127.0.0.1 - - [17/Aug/2024 23:06:56] "POST /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [17/Aug/2024 23:06:56] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:root: Query: SELECT players.username, teams.name FROM players JOIN teams WHERE  players.teamID == teams.id AND name = '1' or 1=1 -- '
+INFO:root: Status query: SQL Injection Attack is there
+INFO:werkzeug:127.0.0.1 - - [17/Aug/2024 23:07:06] "POST /exec HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [17/Aug/2024 23:07:06] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:root: Query: SELECT id, name, points FROM teams WHERE name = '1' or 1=1 -- '
+INFO:root: Status query: SQL Injection Attack is there
+INFO:werkzeug:127.0.0.1 - - [17/Aug/2024 23:07:21] "POST /exec HTTP/1.1" 200 -

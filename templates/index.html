@@ -29,6 +29,10 @@
                 <emoji>ℹ️</emoji>
             </button>
             {% if session.username %}
+                <!-- Button to trigger the modal -->
+                <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#selectionModal">
+                    Seleziona ricerca
+                </button>
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#logoutModal">
                     Logout
                 </button>
@@ -51,10 +55,10 @@
             {% endif %}
         {% endwith %}
 
-
         <form action="/exec" method="POST">
+            <input type="hidden" id="searchType" name="searchType" value="teams"> <!-- Campo nascosto per memorizzare il tipo di ricerca -->
             <div class="form-group">
-                <label for="query">Inserisci il team da cercare:</label>
+                <label for="query">Inserisci la query:</label>
                 <input type="text" class="form-control" id="query" name="query" required>
             </div>
             <button type="submit" class="btn btn-primary">Esegui</button>
@@ -149,6 +153,27 @@
         </div>
     </div>
 
+    <!-- Selection Modal -->
+    <div class="modal fade" id="selectionModal" tabindex="-1" role="dialog" aria-labelledby="selectionModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="selectionModalLabel">Seleziona la Modalità</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <button type="button" class="btn btn-primary btn-block" onclick="setSearchType('teams')">Teams</button>
+                    <button type="button" class="btn btn-secondary btn-block mt-2" onclick="setSearchType('players')">Players</button>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Logout Modal -->
     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="logoutModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -197,14 +222,18 @@
         </div>
     </div>
 
-
-
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        function setSearchType(type) {
+            document.getElementById('searchType').value = type;
+            $('#selectionModal').modal('hide'); // Hide the modal after selection
+        }
+    </script>
 </body>
 <footer>
     <br><br>
-    
 </footer>
 </html>

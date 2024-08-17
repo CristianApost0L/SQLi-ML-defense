@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, flash, session, url_for, send_from_directory
+from flask import Flask, request, render_template, flash, session, url_for, send_from_directory, redirect
 import sqlite3
 import os
 from flags import flags
@@ -83,8 +83,18 @@ def favicon():
 # per ogni root /exec, dopo aver cliccato il bottone ricerca, verrà reinderizzata la stessa pagina eseguita una query verso il DBMS
 @app.route('/exec', methods=['POST'])
 def search():
-    # Query da eseguire, si compone di una SELECT sulla tabella Teams con una ricerca basata sul nome dato in input dall'utente.
-    query = "SELECT id, name, points FROM teams WHERE name = '" + request.form['query'] + "'"
+
+    search_type = request.form.get('searchType') # ricerca del tipo di ricerca da effettuare
+
+    if search_type == 'teams':
+        # Query da eseguire, si compone di una SELECT sulla tabella Teams con una ricerca basata sul nome dato in input dall'utente.
+        query = "SELECT id, name, points FROM teams WHERE name = '" + request.form['query'] + "'"
+    elif search_type == 'players':
+        # Query da eseguire, si compone di una SELECT sulla tabella Players con una ricerca basata sul nome dato in input dall'utente.
+        query = "SELECT players.username, teams.name FROM players JOIN teams WHERE  players.teamID == teams.id AND name = '" + request.form['query'] + "'"
+    else:
+        flash('Tipo di ricerca non valido.', 'danger')
+        return redirect(url_for('index'))
 
     # Logging configuration
     logging.basicConfig(filename='app.log', level=logging.INFO)
