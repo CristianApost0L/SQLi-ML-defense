@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Sql injection</title>
+    <title>SQL Injection</title>
     <!-- Link to the favicon using url_for -->
     <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
 
@@ -20,16 +20,13 @@
 <body>
     <div class="container mt-3">
         <div class="d-flex justify-content-between align-items-center">
-
             <!-- Title -->
-            <h1 class="display-4">SQL injection Tutorial</h1>
-
+            <h1 class="display-4">SQL Injection Tutorial</h1>
             <!-- Buttons -->
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                <emoji>ℹ️</emoji>
+                ℹ️
             </button>
             {% if session.username %}
-                <!-- Button to trigger the modal -->
                 <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#selectionModal">
                     Seleziona ricerca
                 </button>
@@ -126,8 +123,7 @@
         {% endif %}
     </div>
 
-
-    <!-- Modal -->
+    <!-- Modals -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -226,10 +222,19 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
+    <!-- Your JavaScript here -->
     <script>
         function setSearchType(type) {
             document.getElementById('searchType').value = type;
-            $('#selectionModal').modal('hide'); // Hide the modal after selection
+            localStorage.setItem('searchType', type); // Salva la scelta in localStorage
+            $('#selectionModal').modal('hide'); // Nascondi il modal dopo la selezione
+        }
+
+        window.onload = function() {
+            const savedType = localStorage.getItem('searchType'); // Recupera la scelta salvata
+            if (savedType) {
+                document.getElementById('searchType').value = savedType;
+            }
         }
     </script>
 </body>
