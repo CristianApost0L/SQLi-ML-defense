@@ -73,14 +73,14 @@
                         Logout
                     </button>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ url_for('profile', username=session['username']) }}" class="btn btn-primary">Profilo</a>
+                </li>                
                 {% else %}
                 <li class="nav-item">
                     <button type="button" class="btn btn-primary mr-2" data-toggle="modal" data-target="#loginModal">
-                        Login
+                        Sign In
                     </button>
-                </li>
-                <li class="nav-item">
-                    <a href="/register" class="btn btn-secondary">Registrati</a>
                 </li>
                 {% endif %}
             </ul>
@@ -263,6 +263,7 @@
                             <label for="password">Password</label>
                             <input type="password" class="form-control" id="password" name="password" required>
                         </div>
+                        <p>Non hai un account? <a href="/register">Registrati</a></p>
                         <button type="submit" class="btn btn-primary">Login</button>
                     </form>
                 </div>
@@ -301,7 +302,7 @@
                     <h4>Prima sfida:</h4>
                     <i>Fatti restituire tutti i dati della tabella con una sola query (Forse un ripasso di logica ti può aiutare)</i>
                 `;
-            } else if (type === 'teams') {
+            } else {
                 modalContent.innerHTML = `
                     <h4>Tabelle</h4>
                     <p>
@@ -310,13 +311,6 @@
                     <br>
                     <h4>Prima sfida:</h4>
                     <i>Fatti restituire tutti i dati della tabella con una sola query (Forse un ripasso di logica ti può aiutare)</i>
-                `;
-            } else {
-                modalContent.innerHTML = `
-                    <h4>Info Generali</h4>
-                    <p>
-                        Seleziona un tipo di ricerca per visualizzare informazioni specifiche.
-                    </p>
                 `;
             }
         }
@@ -373,6 +367,7 @@
                 localStorage.setItem('searchType', savedType);
             }
             document.getElementById('searchType').value = savedType;
+            updateModalContent(savedType);
 
             const adminMode = localStorage.getItem('adminMode') === 'true';
             if (!adminMode) {

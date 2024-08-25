@@ -3,6 +3,7 @@ import sqlite3
 import os
 from flags import flags
 import logging
+from werkzeug.utils import secure_filename
 import ml # importazione del modello di machine learning
 
 # creazione di un dizionario dalla directory sol, sono le challange da fare
@@ -19,6 +20,10 @@ safe_mode = False
 
 # Specifica che il server è in modalità machine learning
 ml_mode = False
+
+# Cartella dove verranno salvate le immagini di profilo
+UPLOAD_FOLDER = 'static/uploads/'
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 # se siamo nella root verrà renderizzata la pagina di index
 @app.route('/')
@@ -101,12 +106,12 @@ def register():
         username = request.form['username']
         password = request.form['password']
         
-        if safe_mode:
+        if not safe_mode:
             # Prapeared Statement per evitare SQL Injection
             query = "INSERT INTO users (username, password) VALUES (?, ?)"
             params = (username, password)
-            
-        query = "INSERT INTO users (username, password) VALUES ('" + username + "','" + password + "')"
+        else:
+            query = "INSERT INTO users (username, password) VALUES ('" + username + "','" + password + "')"
 
         # Logging configuration
         logging.basicConfig(filename='app.log', level=logging.INFO)
@@ -123,7 +128,7 @@ def register():
                 file.write(f'Predicted: {ml.prediction(query)}\n')
         
         try:
-            if safe_mode:
+            if not safe_mode:
                 # Esecuzione corretta perché evita l'esecuzione di più statament
                 cursor.execute(query, params)
             else :
@@ -219,6 +224,46 @@ def logout():
     session.pop('admin', None)
     flash('Logout effettuato con successo.', 'success')
     return render_template('index.html')
+
+@app.route('/profile/<username>', methods=['GET', 'POST'])
+def profile(username):
+
+    conn = sqlite3.connect("file:preCC_SQL_injection.db", uri=True)
+    cursor = conn.cursor()
+
+    if request.method == 'POST':
+        # Gestione del caricamento della foto profilo
+        if 'profile_pic' in request.files:
+            file = request.files['profile_pic']
+            if file and file.filename != '':
+                try:
+                    filename = file.filename  # Ottieni il nome del file
+                    # Salva il file nella directory 'static/uploads'
+                    filepath = os.path.join('static/uploads', filename)
+                    file.save(filepath)
+                    
+                    # Aggiorna il nome del file nel database
+                    cursor.execute("UPDATE users SET profile_pic = ? WHERE username = ?", (filename, username))
+                    conn.commit()
+                except sqlite3.OperationalError as e:
+                    print(f"Database error: {e}")
+                
+    if safe_mode:
+        cursor.execute("SELECT username, profile_pic FROM users WHERE username = ?", (username,))
+    else:
+        # Per fare un attacco di tipo SQLi di secondo ordine è fondamentale avere una fare di registrazione correttamente implementata
+        query = "SELECT username, profile_pic FROM users WHERE username = '" + username + "'"
+        cursor.execute(query)
+
+    # Forzatura nella generazione del username
+    users = cursor.fetchall()
+    username = ', '.join(user[0] for user in users)
+    profile_pics = users[0][1]
+
+    if users:
+        return render_template('profile.html', username=username, profile_pic=profile_pics)
+    else:
+        return "User not found", 404
 
 if __name__ == '__main__':
     app.run(debug=True)
