@@ -18,38 +18,53 @@
     </style>
 </head>
 <body>
-    <div class="container mt-3">
-        <div class="d-flex justify-content-between align-items-center">
-            <!-- Title -->
-            <h1 class="display-4">SQL Injection Tutorial</h1>
-            <!-- Buttons -->
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                ℹ️
-            </button>
-            {% if session.username %}
-                <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#selectionModal">
-                    Seleziona ricerca
-                </button>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#logoutModal">
-                    Logout
-                </button>
-            {% else %}
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal">
-                    Login
-                </button>
-                <a href="/register" class="btn btn-secondary">Registrati</a>
-            {% endif %}
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <img src="{{ url_for('static', filename='favicon.png') }}" width="30" height="30" class="d-inline-block align-top" alt="Logo">
+            SQL Injection Tutorial
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <button type="button" class="btn btn-primary mr-2" data-toggle="modal" data-target="#exampleModal">
+                        ℹ️
+                    </button>
+                </li>
+                {% if session.username %}
+                <li class="nav-item">
+                    <button type="button" class="btn btn-primary mr-2" data-toggle="modal" data-target="#logoutModal">
+                        Logout
+                    </button>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <button type="button" class="btn btn-primary mr-2" data-toggle="modal" data-target="#loginModal">
+                        Login
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <a href="/register" class="btn btn-secondary">Registrati</a>
+                </li>
+                {% endif %}
+            </ul>
         </div>
+    </nav>
 
+
+    <div class="container mt-3">
         <!-- Flash messages -->
         {% with messages = get_flashed_messages(with_categories=true) %}
-            {% if messages %}
-                <div class="mt-4">
-                    {% for category, message in messages %}
-                        <div class="alert alert-{{ category }}">{{ message }}</div>
-                    {% endfor %}
-                </div>
-            {% endif %}
+        {% if messages %}
+        <div class="mt-4">
+            {% for category, message in messages %}
+            <div class="alert alert-{{ category }}">{{ message }}</div>
+            {% endfor %}
+        </div>
+        {% endif %}
         {% endwith %}
 
         <form action="/exec" method="POST">
@@ -58,7 +73,17 @@
                 <label for="query">Inserisci la query:</label>
                 <input type="text" class="form-control" id="query" name="query" required>
             </div>
+            {% if session.username %}
+                <div class="form-group">
+                    <label for="searchTypeDropdown" class="sr-only">Tipo di ricerca:</label>
+                    <select class="form-control" id="searchTypeDropdown" onchange="setSearchType(this.value)">
+                        <option value="teams">Teams</option>
+                        <option value="players">Players</option>
+                    </select>
+                </div>
+            {% endif %}
             <button type="submit" class="btn btn-primary">Esegui</button>
+            <button type="button" class="btn btn-secondary" onclick="clearOutput()">Pulisci</button>
         </form>
 
         {% if flag %}
@@ -89,22 +114,22 @@
         </div>
         {% endif %}
 
-        {% if columns %}
-        <h2 class="mt-4">Risultati:</h2>
-        <div class="row">
-            <div class="col-12">
-                <ul class="list-group">
-                    <li class="list-group-item">
-                        <div class="row">
-                            {% for col in columns %}
-                            <div class="col">
-                                <strong>{{ col }}</strong>
+        {% if results %}
+        <div id="resultsContainer">
+            <h2 class="mt-4">Risultati:</h2>
+            <div class="row">
+                <div class="col-12">
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <div class="row">
+                                {% for col in columns %}
+                                <div class="col">
+                                    <strong>{{ col }}</strong>
+                                </div>
+                                {% endfor %}
                             </div>
-                            {% endfor %}
-                        </div>
-                    </li>
-                    
-                    {% if results %}
+                        </li>
+
                         {% for info in results %}
                         <li class="list-group-item">
                             <div class="row">
@@ -116,14 +141,14 @@
                             </div>
                         </li>
                         {% endfor %}
-                    {% endif %}
-                </ul>
+                    </ul>
+                </div>
             </div>
         </div>
         {% endif %}
     </div>
 
-    <!-- Modals -->
+    <!-- Modal Info -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -133,14 +158,8 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
-                    <h4>Tabelle</h4>
-                    <p>
-                        Ti ho connesso alla tabella <code>teams</code>. Mi sono dimenticato le colonne. Le altre tabelle le devi trovare da solo.
-                    </p>
-                    <br>
-                    <h4>Prima sfida:</h4>
-                    <i>Fatti restituire tutti i dati della tabella con una sola query (Forse un ripasso di logica ti può aiutare)</i>
+                <div class="modal-body" id="modalContent">
+                    <!-- Il contenuto sarà inserito dinamicamente via JS -->
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>
@@ -154,7 +173,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="selectionModalLabel">Seleziona la Modalità</h5>
+                    <h5 class="modal-title" id="selectionModalLabel">Seleziona la tabella da cui attaccare</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -218,6 +237,12 @@
         </div>
     </div>
 
+    <footer class="bg-light text-center py-3">
+        <div class="container">
+            <p class="text-muted mb-0">&copy; 2024 - Security Homework</p>
+        </div>
+    </footer>
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -227,18 +252,60 @@
         function setSearchType(type) {
             document.getElementById('searchType').value = type;
             localStorage.setItem('searchType', type); // Salva la scelta in localStorage
-            $('#selectionModal').modal('hide'); // Nascondi il modal dopo la selezione
+            updateModalContent(type); // Aggiorna il contenuto del modal ℹ️
         }
 
-        window.onload = function() {
+        window.onload = function () {
             const savedType = localStorage.getItem('searchType'); // Recupera la scelta salvata
             if (savedType) {
                 document.getElementById('searchType').value = savedType;
+                document.getElementById('searchTypeDropdown').value = savedType;
+                updateModalContent(savedType); // Aggiorna il contenuto del modal ℹ️
             }
         }
+
+        function updateModalContent(type) {
+            const modalContent = document.getElementById('modalContent');
+
+            if (type === 'players') {
+                modalContent.innerHTML = `
+                    <h4>Tabelle</h4>
+                    <p>
+                        Ti ho connesso alla tabella <code>players</code>. Mi sono dimenticato le colonne. Le altre tabelle le devi trovare da solo.
+                    </p>
+                    <br>
+                    <h4>Prima sfida:</h4>
+                    <i>Fatti restituire tutti i dati della tabella con una sola query (Forse un ripasso di logica ti può aiutare)</i>
+                `;
+            } else if (type === 'teams') {
+                modalContent.innerHTML = `
+                    <h4>Tabelle</h4>
+                    <p>
+                        Ti ho connesso alla tabella <code>teams</code>. Mi sono dimenticato le colonne. Le altre tabelle le devi trovare da solo.
+                    </p>
+                    <br>
+                    <h4>Prima sfida:</h4>
+                    <i>Fatti restituire tutti i dati della tabella con una sola query (Forse un ripasso di logica ti può aiutare)</i>
+                `;
+            } else {
+                modalContent.innerHTML = `
+                    <h4>Info Generali</h4>
+                    <p>
+                        Seleziona un tipo di ricerca per visualizzare informazioni specifiche.
+                    </p>
+                `;
+            }
+        }
+
+        function clearOutput() {
+            document.getElementById("query").value = "";
+            document.getElementById("resultsContainer").innerHTML = "";
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            var exampleModal = document.getElementById("exampleModal");
+            exampleModal.addEventListener("show.bs.modal", loadContent);
+        });
     </script>
 </body>
-<footer>
-    <br><br>
-</footer>
 </html>

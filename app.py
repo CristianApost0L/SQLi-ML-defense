@@ -150,7 +150,7 @@ def login():
         cursor = conn.cursor()
 
         #query = 'SELECT * FROM users WHERE username = ? AND password = ?', (username, password)
-        query = "INSERT INTO users (username, password) VALUES ('" + username + "','" + password + "')"
+        query = "SELECT * FROM users WHERE username = '" + username + "' AND password = '" + password + "'"
 
         # Logging configuration
         logging.basicConfig(filename='app.log', level=logging.INFO)
@@ -161,11 +161,11 @@ def login():
         # Query execution
         logging.info(f"Query: {query}")
 
-        res = prediction(str(query))
+        res = ml.prediction(str(query))
 
         logging.info(f" Status query: {res}")
 
-        cursor.execute('SELECT * FROM users WHERE username = ? AND password = ?', (username, password))
+        cursor.execute(query)
         user = cursor.fetchone()
         conn.close()
         
