@@ -1,1 +1,11 @@
+# Ignore all log files
 *.log
+
+# Ingore all .DS_Store files
+sol/
+
+# Ignore all .sqlite3 files
+*.db
+
+# Ignore predictions
+ML/output.txt
