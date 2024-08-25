@@ -56,7 +56,7 @@
                             <label class="custom-control-label" for="modeSwitch">
                                 <span class="d-inline-flex align-items-center">
                                     <i class="fas fa-user-shield mr-2"></i> <!-- Aggiungi un'icona -->
-                                    Admin Mode
+                                    Safe Mode
                                 </span>
                             </label>
                         </div>
@@ -288,25 +288,6 @@
             updateModalContent(type); // Aggiorna il contenuto del modal ℹ️
         }
 
-        window.onload = function () {
-            let savedType = localStorage.getItem('searchType');
-            if (!savedType) {
-                savedType = 'teams'; // Valore predefinito
-                localStorage.setItem('searchType', savedType);
-            }
-            document.getElementById('searchType').value = savedType;
-            updateModalContent(savedType);
-
-            const adminMode = localStorage.getItem('adminMode') === 'true';
-            document.getElementById('modeSwitch').checked = adminMode;
-
-            if (adminMode) {
-                activateAdminMode();
-            } else {
-                deactivateAdminMode();
-            }
-        }
-
         function updateModalContent(type) {
             const modalContent = document.getElementById('modalContent');
 
@@ -353,39 +334,61 @@
         function toggleMode() {
             const isChecked = document.getElementById('modeSwitch').checked;
 
-            // Invia la scelta al server
-            fetch('/toggle_mode', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ adminMode: adminMode }),
-            })
-
-            const adminMode = document.getElementById('modeSwitch').checked;
-            
-            // Salva la modalità selezionata in localStorage o invia la scelta al server
+            // Salva la modalità selezionata in localStorage
             localStorage.setItem('adminMode', isChecked);
 
-            // Modifica il comportamento dell'applicazione a seconda della modalità
+            // Debug stamp
             if (isChecked) {
                 activateAdminMode();
             } else {
                 deactivateAdminMode();
             }
+
+            // Invia la scelta al server (in modo asincrono)
+            fetch('/toggle_mode', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ adminMode: isChecked }),
+            });
         }
 
         function activateAdminMode() {
             // Aggiungi qui il codice per attivare la modalità Admin
             document.body.classList.add('admin-mode');
-            alert("Admin mode activated!");
+            alert("Safe mode activated!");
         }
 
         function deactivateAdminMode() {
             // Aggiungi qui il codice per disattivare la modalità Admin
             document.body.classList.remove('admin-mode');
-            alert("Admin mode deactivated!");
+            alert("Safe mode deactivated!");
         }
+
+        window.onload = function () {
+            let savedType = localStorage.getItem('searchType');
+            if (!savedType) {
+                savedType = 'teams'; // Valore predefinito
+                localStorage.setItem('searchType', savedType);
+            }
+            document.getElementById('searchType').value = savedType;
+
+            const adminMode = localStorage.getItem('adminMode') === 'true';
+            if (!adminMode) {
+                adminMode = 'Off'; // Valore predefinito
+                localStorage.setItem('adminMode', adminMode);
+            }
+            document.getElementById('modeSwitch').checked = adminMode;
+
+            //  Debug stamp
+            // if (adminMode) {
+            //     activateAdminMode(); // Attiva l'admin mode senza l'alert
+            // } else {
+            //     deactivateAdminMode(); // Disattiva l'admin mode senza l'alert
+            // }
+        }
+
 
     </script>
 </body>

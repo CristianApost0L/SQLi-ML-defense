@@ -3,6 +3,7 @@ import sqlite3
 import os
 from flags import flags
 import logging
+import ml # importazione del modello di machine learning
 
 # creazione di un dizionario dalla directory sol, sono le challange da fare
 solves = {}
@@ -18,8 +19,6 @@ safe_mode = False
 
 # Specifica che il server è in modalità machine learning
 ml_mode = False
-if ml_mode:
-    import ml # importazione del modello di machine learning
 
 # se siamo nella root verrà renderizzata la pagina di index
 @app.route('/')
@@ -51,9 +50,11 @@ def search():
     conn = sqlite3.connect("file:preCC_SQL_injection.db?mode=ro", uri=True) # inizializzazione della connessione con il database
     cursor = conn.cursor() # ci permette di eseguire la query nel nostro DB in modalità di sola lettura
 
+    # Logging configuration
+    logging.basicConfig(filename='app.log', level=logging.INFO)
     logging.info(f"Query: {query}")
 
-    if ml_mode:
+    if safe_mode:
         with open('./ML/output.txt', 'a') as file:
         # Scrivi una stringa nel file
             file.write(f'Query: {query}\n')
@@ -104,15 +105,22 @@ def register():
             # Prapeared Statement per evitare SQL Injection
             query = "INSERT INTO users (username, password) VALUES (?, ?)"
             params = (username, password)
-            exec_correct = True
             
         query = "INSERT INTO users (username, password) VALUES ('" + username + "','" + password + "')"
 
+        # Logging configuration
+        logging.basicConfig(filename='app.log', level=logging.INFO)
         # Log username and password
         logging.info(f"Username: {username}, Password: {password}")
 
         conn = sqlite3.connect("file:preCC_SQL_injection.db", uri=True)
         cursor = conn.cursor()
+
+        if safe_mode:
+            with open('./ML/output.txt', 'a') as file:
+            # Scrivi una stringa nel file
+                file.write(f'Query: {query}\n')
+                file.write(f'Predicted: {ml.prediction(query)}\n')
         
         try:
             if safe_mode:
@@ -144,17 +152,24 @@ def login():
         conn = sqlite3.connect("file:preCC_SQL_injection.db?mode=ro", uri=True)
         cursor = conn.cursor()
 
-        logging.info(f"Safe_mode: {safe_mode}")
-
         if safe_mode:
-                # Prepared Statement per evitare SQL Injection
-                query = 'SELECT * FROM users WHERE username = ? AND password = ?'
-                params = (username, password)
+            # Prepared Statement per evitare SQL Injection
+            query = "SELECT * FROM users WHERE username = ? AND password = ?"
+            params = (username, password)
 
         query = "SELECT * FROM users WHERE username = '" + username + "' AND password = '" + password + "'"
 
+        # Logging configuration
+        logging.basicConfig(filename='app.log', level=logging.INFO)
+
         # Log username and password
         logging.info(f"Username: {username}, Password: {password}")
+
+        if safe_mode:
+            with open('./ML/output.txt', 'a') as file:
+            # Scrivi una stringa nel file
+                file.write(f'Query: {query}\n')
+                file.write(f'Predicted: {ml.prediction(query)}\n')
 
         try:
             if safe_mode:
@@ -185,9 +200,16 @@ def login():
 
 @app.route('/toggle_mode', methods=['POST'])
 def toggle_mode():
+    global safe_mode
+    global ml_mode
     data = request.json
-    safe_mode = data['adminMode']
-    logging.info(f"Safe mode: {safe_mode}")
+    safe_mode = data.get('adminMode', False)
+    session['adminMode'] = safe_mode
+
+    # Logging configuration
+    logging.basicConfig(filename='app.log', level=logging.INFO)
+    logging.info(f" Safe_mode: {safe_mode}")
+    
     return jsonify(success=True)
 
 
@@ -199,6 +221,4 @@ def logout():
     return render_template('index.html')
 
 if __name__ == '__main__':
-    # Logging configuration
-    logging.basicConfig(filename='app.log', level=logging.INFO)
     app.run(debug=True)
