@@ -28,3 +28,687 @@ INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 16:08:34] "[36mGET /static/favicon.png
 INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
 INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
 INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:root:Username: cristian@gmail.com, Password: ' OR 1=1; BEGIN TRANSACTION; -- --
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 16:31:15] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 16:31:15] "[36mGET /login?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 16:31:15] "[36mGET /login?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 16:31:15] "[36mGET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 16:31:15] "[36mGET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 16:31:24] "GET /register HTTP/1.1" 200 -
+INFO:root:Username: cristian@gmail.com, Password: ';BEGIN TRANSACTION; ----
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 16:31:41] "POST /register HTTP/1.1" 200 -
+INFO:root:Username: cristianc@gmail.com, Password: ';BEGIN TRANSACTION; ----
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 16:31:55] "POST /register HTTP/1.1" 200 -
+INFO:root:Username: asd@gmail.com, Password: ';BEGIN TRANSACTION; --
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 16:32:23] "POST /register HTTP/1.1" 200 -
+INFO:root:Username: crqistian@gmail.com, Password: ';BEGIN TRANSACTION  --
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 16:33:29] "POST /register HTTP/1.1" 200 -
+INFO:root:Username: cristian@gmail.com, Password: ');BEGIN TRANSACTION  --
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 16:34:09] "POST /register HTTP/1.1" 200 -
+INFO:root:Username: c@gmail.com, Password: ');BEGIN TRANSACTION  --
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 16:34:21] "POST /register HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 16:34:21] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 16:35:09] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 16:35:09] "GET /static/favicon.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 16:35:09] "GET /static/favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 16:35:14] "GET /register HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 16:35:14] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:root:Username: cristiaan@gmail.com, Password: QNNEWJ0J9jojq
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 16:35:19] "POST /register HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 16:35:19] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 16:35:19] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 16:35:24] "POST /exec HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 16:35:24] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 16:35:24] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 16:35:34] "POST /exec HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 16:35:34] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:root:Username: cristian@gmial.com, Password: 1234
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 16:35:50] "POST /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 16:35:50] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 16:35:50] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:root:Username: cristian@gmail.com, Password: QNNEWJ0J9jojq
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 16:52:49] "POST /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 16:52:49] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 16:53:22] "GET /logout HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 16:53:22] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 16:58:49] "GET /logout HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 16:58:49] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 16:58:50] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:root:Username: cristian@gmail.com, Password: QNNEWJ0J9jojq
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 16:58:56] "POST /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 16:58:56] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 16:59:06] "POST /exec HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 16:59:06] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:03:21] "POST /exec HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:03:21] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:03:21] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:03:46] "POST /exec HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:03:46] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:03:46] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:04:11] "POST /exec HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:04:11] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:04:11] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:04:38] "POST /exec HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:04:38] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:04:38] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:07:06] "POST /exec HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:07:06] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:07:06] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:07:46] "POST /exec HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:07:46] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:07:46] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:10:01] "POST /exec HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:10:01] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:10:03] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:11:03] "POST /exec HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:11:03] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:11:03] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:root:Username: admin, Password: ' OR 1=1--
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:12:09] "POST /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:12:09] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:root:Username: admin, Password: ' OR 1=1--
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:14:32] "POST /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:14:32] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:14:32] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:root:Username: admin, Password: ' OR 1=1--
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:14:44] "POST /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:14:44] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:14:44] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:14:46] "GET /logout HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:14:46] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:root:Username: admin, Password: ' OR 1=1 --
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:15:00] "POST /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:15:00] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:root:Username: admin, Password: ' OR 1=1 --
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:15:39] "POST /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:15:39] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:15:41] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:root:Username: ciao, Password: ' OR 1=10 --
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:24:42] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:24:42] "[36mGET /login?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:24:42] "[36mGET /login?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:24:42] "[36mGET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:24:42] "[36mGET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:24:51] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:root:Username: ciao, Password: ' OR 1=10 --
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:25:25] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:25:25] "[36mGET /login?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:25:25] "[36mGET /login?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:25:25] "[36mGET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:25:25] "[36mGET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:25:37] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:root:Username: ciao, Password: 1234
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:25:44] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:25:44] "[36mGET /login?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:25:44] "[36mGET /login?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:25:44] "[36mGET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:25:44] "[36mGET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:25:49] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:26:06] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:26:06] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:26:06] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:root:Username: cioa, Password: 1234
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:27:28] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:27:28] "[36mGET /login?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:27:28] "[36mGET /login?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:27:28] "[36mGET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:27:28] "[36mGET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:27:34] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:root:Username: cioa, Password: 1234
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:30:36] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:30:36] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:30:36] "[36mGET /login?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:30:36] "[36mGET /login?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:30:36] "[36mGET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:30:36] "[36mGET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:root:Username: cioa, Password: 1234
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:34:20] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:34:20] "[36mGET /login?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:34:20] "[36mGET /login?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:34:20] "[36mGET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:34:20] "[36mGET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:root:Username: cioa, Password: 1234
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:35:14] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:35:14] "POST /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:35:14] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:35:14] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with watchdog (inotify)
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 481-232-184
+INFO:root:Username: cioa, Password: 1234
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:47:58] "POST /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:47:58] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:47:58] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:root:Username: cristian@gmail.com, Password: ' OR 1=1 --ù
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:48:17] "POST /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:48:17] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:48:17] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:48:26] "GET /logout HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:48:26] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:48:26] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:48:33] "GET /logout HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:48:33] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:48:35] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:root:Username: cristian@gmail.com, Password: ' OR 1=1 --
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:48:59] "POST /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:48:59] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:48:59] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Restarting with watchdog (inotify)
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 481-232-184
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Restarting with watchdog (inotify)
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 481-232-184
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:50:18] "GET /logout HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:50:18] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:50:18] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:root:Username: ciao@gmial.com, Password: 1234
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:50:25] "POST /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:50:25] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:50:25] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:root:Username: cristian@gmail.com, Password: ' OR 1=1 --
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:50:36] "POST /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:50:36] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:50:36] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:50:41] "GET /logout HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:50:41] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:50:41] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:root:Username: cristian@gmail.com, Password: QNNEWJ0J9jojq
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:50:45] "POST /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:50:45] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:50:45] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:51:22] "POST /toggle_mode HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:51:29] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:51:29] "[36mGET /login?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:51:29] "[36mGET /login?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:51:29] "[36mGET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:51:29] "[36mGET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:51:32] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:51:36] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:51:36] "[36mGET /login?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:51:36] "[36mGET /login?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:51:36] "[36mGET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:51:36] "[36mGET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Restarting with watchdog (inotify)
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 481-232-184
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Restarting with watchdog (inotify)
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 481-232-184
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Restarting with watchdog (inotify)
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 481-232-184
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Restarting with watchdog (inotify)
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 481-232-184
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Restarting with watchdog (inotify)
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 481-232-184
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Restarting with watchdog (inotify)
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 481-232-184
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Restarting with watchdog (inotify)
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 481-232-184
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Restarting with watchdog (inotify)
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 481-232-184
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Restarting with watchdog (inotify)
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 481-232-184
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:54:02] "POST /toggle_mode HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:54:06] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:root:Username: cristian@gmail.com, Password: ' OR 1=10 --
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:54:20] "POST /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:54:20] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:54:20] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Restarting with watchdog (inotify)
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 481-232-184
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Restarting with watchdog (inotify)
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with watchdog (inotify)
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 481-232-184
+INFO:root:Username: cristian@gmail.com, Password: 6779
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:58:14] "POST /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:58:14] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:58:14] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Restarting with watchdog (inotify)
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 481-232-184
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:59:02] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:root:Username: cristian@gmail.com, Password: 6779
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:59:04] "POST /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:59:04] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:59:04] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Restarting with watchdog (inotify)
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 481-232-184
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:59:25] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:root:Username: cristian@gmail.com, Password: 6779
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:59:34] "POST /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:59:34] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 17:59:34] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:00:05] "GET /logout HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:00:05] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:00:05] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:root:Username: cristian@gmail.com, Password: 1234567
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:00:14] "POST /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:00:14] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:00:14] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:root:Username: cristian@gmail.com, Password: ' OR 1=1 --
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:00:35] "POST /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:00:35] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:00:35] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:00:48] "POST /toggle_mode HTTP/1.1" 200 -
+INFO:root:Username: cristian@gmail.com, Password: ? OR 1=1 --
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:01:09] "POST /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:01:09] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:01:09] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:root:Username: cristian@gmail.com, Password: ' OR 1=1 --
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:01:51] "POST /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:01:51] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:01:51] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Restarting with watchdog (inotify)
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 481-232-184
+INFO:root:Username: cristian@gmail.com, Password: QNNEWJ0J9jojq
+INFO:root:User: ('cristian@gmail.com', 'QNNEWJ0J9jojq')
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:13:19] "POST /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:13:19] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:13:19] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:13:22] "GET /logout HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:13:22] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:13:22] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:root:Username: cristian@gmail.com, Password: ' OR 1=1 --
+INFO:root:User: ('salvatoreabello@gmail.com', 'ADNSKNFNkan')
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:13:45] "POST /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:13:45] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:13:45] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:13:56] "POST /toggle_mode HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:14:03] "GET /logout HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:14:03] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:14:03] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:root:Username: cristian@gmail.com, Password: ' OR 1=1 --
+INFO:root:User: ('salvatoreabello@gmail.com', 'ADNSKNFNkan')
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:14:13] "POST /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:14:13] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:14:13] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:root:Username: cristian@gmail.com, Password: ' OR 1=1 --
+INFO:root:User: ('salvatoreabello@gmail.com', 'ADNSKNFNkan')
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:14:28] "POST /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:14:28] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:14:28] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:14:30] "GET /logout HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:14:30] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:14:30] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:root:Username: cristian@gmail.com, Password: ' OR 1=1 --
+INFO:root:User: ('salvatoreabello@gmail.com', 'ADNSKNFNkan')
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:14:47] "POST /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:14:47] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:14:47] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:16:20] "POST /toggle_mode HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:16:23] "POST /toggle_mode HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:16:50] "GET /logout HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:16:50] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:16:50] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:root:Username: cristian@gmail.com, Password: ' OR 1=10 --
+INFO:root:User: None
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:17:00] "POST /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:17:00] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:17:00] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:17:06] "POST /toggle_mode HTTP/1.1" 200 -
+INFO:root:Username: cristian@gmail.com, Password: ' OR 1=1  --
+INFO:root:User: ('salvatoreabello@gmail.com', 'ADNSKNFNkan')
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:17:37] "POST /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:17:37] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:17:37] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:17:41] "GET /logout HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:17:41] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:17:41] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:17:46] "POST /toggle_mode HTTP/1.1" 200 -
+INFO:root:Username: cristian@gmail.com, Password: ' OR 1=1 --
+INFO:root:User: ('salvatoreabello@gmail.com', 'ADNSKNFNkan')
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:18:02] "POST /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:18:02] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:18:02] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:18:06] "GET /logout HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:18:06] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:18:06] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:root:Username: cristian@gmail.com, Password: ' OR 1=1 --
+INFO:root:User: ('salvatoreabello@gmail.com', 'ADNSKNFNkan')
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:18:25] "POST /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:18:25] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:18:25] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:18:31] "POST /toggle_mode HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:18:38] "GET /logout HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:18:38] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:18:38] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:root:Username: cristian@gmail.com, Password: ' OR 1=1 --
+INFO:root:User: ('salvatoreabello@gmail.com', 'ADNSKNFNkan')
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:18:49] "POST /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:18:49] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:18:49] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:18:54] "POST /toggle_mode HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:19:01] "GET /logout HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:19:01] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:19:01] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:root:Username: cristian@gmail.com, Password: ' OR 1=1 --
+INFO:root:User: ('salvatoreabello@gmail.com', 'ADNSKNFNkan')
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:19:10] "POST /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:19:10] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:19:10] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Restarting with watchdog (inotify)
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 481-232-184
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Restarting with watchdog (inotify)
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 481-232-184
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Restarting with watchdog (inotify)
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with watchdog (inotify)
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 481-232-184
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with watchdog (inotify)
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 481-232-184
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:20:52] "GET /logout HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:20:52] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:20:53] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:root:Username: cristian@gmail.com, Password: QNNEWJ0J9jojq
+INFO:root:User: ('cristian@gmail.com', 'QNNEWJ0J9jojq')
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:21:07] "POST /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:21:07] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with watchdog (inotify)
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 481-232-184
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with watchdog (inotify)
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 481-232-184
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with watchdog (inotify)
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 481-232-184
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with watchdog (inotify)
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 481-232-184
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with watchdog (inotify)
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 481-232-184
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with watchdog (inotify)
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 171-156-200
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:26:28] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:26:28] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:26:59] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:26:59] "GET /static/favicon.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:26:59] "GET /static/favicon.ico HTTP/1.1" 200 -
+INFO:root:Username: cristian@gmail.com, Password: ' or 1=1 --
+INFO:root:User: ('salvatoreabello@gmail.com', 'ADNSKNFNkan')
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:27:10] "POST /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:27:10] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:27:10] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:27:35] "GET /logout HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:27:35] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Restarting with watchdog (inotify)
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 171-156-200
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Restarting with watchdog (inotify)
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 171-156-200
+INFO:root:Username: admin, Password: ' OR 1=1 --
+INFO:root:User: ('salvatoreabello@gmail.com', 'ADNSKNFNkan')
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:28:24] "POST /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:28:24] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:28:32] "GET /logout HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:28:32] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:root:Username: cristian@gmail.com, Password: QNNEWJ0J9jojq
+INFO:root:User: ('cristian@gmail.com', 'QNNEWJ0J9jojq')
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:28:35] "POST /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:28:35] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:root:Query: SELECT players.username, teams.name FROM players JOIN teams WHERE  players.teamID == teams.id AND name = '1' or 1=1 -- '
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:28:39] "POST /exec HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:28:39] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:28:42] "GET /logout HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:28:42] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:root:Username: admin, Password: ' OR 1=1 --
+INFO:root:User: ('salvatoreabello@gmail.com', 'ADNSKNFNkan')
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:28:53] "POST /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:28:53] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Restarting with watchdog (inotify)
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 171-156-200
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Restarting with watchdog (inotify)
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 171-156-200
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Restarting with watchdog (inotify)
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 171-156-200
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Restarting with watchdog (inotify)
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 171-156-200
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Restarting with watchdog (inotify)
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 171-156-200
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Restarting with watchdog (inotify)
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 171-156-200
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Restarting with watchdog (inotify)
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 171-156-200
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:30:34] "GET /logout HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:30:34] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:root:Safe_mode: False
+INFO:root:Username: admin, Password: ' OR 1=1 --
+INFO:root:User: ('salvatoreabello@gmail.com', 'ADNSKNFNkan')
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:30:36] "POST /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:30:37] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:31:24] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:31:25] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:31:31] "GET /logout HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:31:31] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:root:Safe_mode: False
+INFO:root:Username: cristian@gmail.com, Password: QNNEWJ0J9jojq
+INFO:root:User: ('cristian@gmail.com', 'QNNEWJ0J9jojq')
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:31:37] "POST /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:31:38] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:33:00] "GET /logout HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:33:00] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:33:04] "GET /logout HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:33:04] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:root:Safe_mode: False
+INFO:root:Username: admin, Password: ' OR 1=1 --
+INFO:root:User: ('salvatoreabello@gmail.com', 'ADNSKNFNkan')
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:33:08] "POST /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:33:08] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Restarting with watchdog (inotify)
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 171-156-200
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:33:58] "GET /logout HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:33:58] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:root:Safe_mode: False
+INFO:root:Username: admin, Password: ' OR 1=1 --
+INFO:root:User: ('salvatoreabello@gmail.com', 'ADNSKNFNkan')
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:34:01] "POST /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:34:01] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:34:29] "GET /logout HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 18:34:29] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with watchdog (inotify)
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 171-156-200
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with watchdog (inotify)
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 171-156-200
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 19:59:52] "GET /logout HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 19:59:52] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 19:59:53] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:root:Safe_mode: False
+INFO:root:Username: admin, Password: ' OR 1=1 --
+INFO:root:User: ('salvatoreabello@gmail.com', 'ADNSKNFNkan')
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 19:59:57] "POST /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 19:59:57] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:root:Safe_mode: False
+INFO:root:Username: admin, Password: ' OR 1=1 --
+INFO:root:User: ('salvatoreabello@gmail.com', 'ADNSKNFNkan')
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 20:00:11] "POST /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 20:00:11] "[36mGET /static/favicon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [25/Aug/2024 20:00:13] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with watchdog (inotify)
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 483-864-522
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with watchdog (inotify)
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 483-557-931
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with watchdog (inotify)
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 483-557-931
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Restarting with watchdog (inotify)
+INFO:werkzeug: * Restarting with watchdog (inotify)
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with watchdog (inotify)
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 483-557-931
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Restarting with watchdog (inotify)
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 483-557-931
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Detected change in '/home/cristian/Desktop/Security/app.py', reloading
+INFO:werkzeug: * Restarting with watchdog (inotify)

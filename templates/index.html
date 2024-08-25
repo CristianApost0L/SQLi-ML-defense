@@ -4,7 +4,7 @@
     <title>SQL Injection</title>
     <!-- Link to the favicon using url_for -->
     <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
@@ -14,6 +14,26 @@
         }
         footer {
             margin-top: auto;
+        }
+        .custom-control-label span {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .custom-control-label .fas {
+            font-size: 1.2rem;
+            color: #007bff; /* Aggiunge un colore distintivo all'icona */
+        }
+
+        .nav-item .custom-switch {
+            display: flex;
+            align-items: center;
+        }
+
+        .custom-switch .custom-control-input:checked ~ .custom-control-label::before {
+            background-color: #007bff;
+            border-color: #007bff;
         }
     </style>
 </head>
@@ -28,7 +48,20 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav align-items-center">
+                {% if session.admin %}
+                    <li class="nav-item mr-3">
+                        <div class="custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input" id="modeSwitch" onchange="toggleMode()">
+                            <label class="custom-control-label" for="modeSwitch">
+                                <span class="d-inline-flex align-items-center">
+                                    <i class="fas fa-user-shield mr-2"></i> <!-- Aggiungi un'icona -->
+                                    Admin Mode
+                                </span>
+                            </label>
+                        </div>
+                    </li>
+                {% endif %}
                 <li class="nav-item">
                     <button type="button" class="btn btn-primary mr-2" data-toggle="modal" data-target="#exampleModal">
                         ℹ️
@@ -256,11 +289,21 @@
         }
 
         window.onload = function () {
-            const savedType = localStorage.getItem('searchType'); // Recupera la scelta salvata
-            if (savedType) {
-                document.getElementById('searchType').value = savedType;
-                document.getElementById('searchTypeDropdown').value = savedType;
-                updateModalContent(savedType); // Aggiorna il contenuto del modal ℹ️
+            let savedType = localStorage.getItem('searchType');
+            if (!savedType) {
+                savedType = 'teams'; // Valore predefinito
+                localStorage.setItem('searchType', savedType);
+            }
+            document.getElementById('searchType').value = savedType;
+            updateModalContent(savedType);
+
+            const adminMode = localStorage.getItem('adminMode') === 'true';
+            document.getElementById('modeSwitch').checked = adminMode;
+
+            if (adminMode) {
+                activateAdminMode();
+            } else {
+                deactivateAdminMode();
             }
         }
 
@@ -306,6 +349,44 @@
             var exampleModal = document.getElementById("exampleModal");
             exampleModal.addEventListener("show.bs.modal", loadContent);
         });
+
+        function toggleMode() {
+            const isChecked = document.getElementById('modeSwitch').checked;
+
+            // Invia la scelta al server
+            fetch('/toggle_mode', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ adminMode: adminMode }),
+            })
+
+            const adminMode = document.getElementById('modeSwitch').checked;
+            
+            // Salva la modalità selezionata in localStorage o invia la scelta al server
+            localStorage.setItem('adminMode', isChecked);
+
+            // Modifica il comportamento dell'applicazione a seconda della modalità
+            if (isChecked) {
+                activateAdminMode();
+            } else {
+                deactivateAdminMode();
+            }
+        }
+
+        function activateAdminMode() {
+            // Aggiungi qui il codice per attivare la modalità Admin
+            document.body.classList.add('admin-mode');
+            alert("Admin mode activated!");
+        }
+
+        function deactivateAdminMode() {
+            // Aggiungi qui il codice per disattivare la modalità Admin
+            document.body.classList.remove('admin-mode');
+            alert("Admin mode deactivated!");
+        }
+
     </script>
 </body>
 </html>

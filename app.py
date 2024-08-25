@@ -1,9 +1,8 @@
-from flask import Flask, request, render_template, flash, session, url_for, send_from_directory, redirect
+from flask import Flask, request, render_template, flash, session, url_for, send_from_directory, redirect, jsonify
 import sqlite3
 import os
 from flags import flags
 import logging
-import ml # importazione del modello di machine learning
 
 # creazione di un dizionario dalla directory sol, sono le challange da fare
 solves = {}
@@ -11,10 +10,16 @@ for file in os.listdir("./sol"):
     with open("./sol/" + file) as f:
         solves[file] = f.read()
 
-
 app = Flask(__name__)
 app.secret_key = 'security_homework_tanto_è_lunga'  # Necessario per gestire le sessioni e i messaggi flash
 
+# Specifica che il server non è in modalità sicura
+safe_mode = False
+
+# Specifica che il server è in modalità machine learning
+ml_mode = False
+if ml_mode:
+    import ml # importazione del modello di machine learning
 
 # se siamo nella root verrà renderizzata la pagina di index
 @app.route('/')
@@ -46,10 +51,13 @@ def search():
     conn = sqlite3.connect("file:preCC_SQL_injection.db?mode=ro", uri=True) # inizializzazione della connessione con il database
     cursor = conn.cursor() # ci permette di eseguire la query nel nostro DB in modalità di sola lettura
 
-    with open('./ML/output.txt', 'a') as file:
-    # Scrivi una stringa nel file
-        file.write(f'Query: {query}\n')
-        file.write(f'Predicted: {ml.prediction(query)}\n')
+    logging.info(f"Query: {query}")
+
+    if ml_mode:
+        with open('./ML/output.txt', 'a') as file:
+        # Scrivi una stringa nel file
+            file.write(f'Query: {query}\n')
+            file.write(f'Predicted: {ml.prediction(query)}\n')
 
     try:
         cursor.execute(query) # esecuzione della query
@@ -88,19 +96,17 @@ def search():
 def register():
 
     if request.method == 'POST':
-        
+
         username = request.form['username']
         password = request.form['password']
-
-        # Esecuzione errata perché permette l'esecuzione di più statament
+        
+        if safe_mode:
+            # Prapeared Statement per evitare SQL Injection
+            query = "INSERT INTO users (username, password) VALUES (?, ?)"
+            params = (username, password)
+            exec_correct = True
+            
         query = "INSERT INTO users (username, password) VALUES ('" + username + "','" + password + "')"
-
-        # Esecuzione corretta perché evita l'esecuzione di più statament
-        #query = "INSERT INTO users (username, password) VALUES (?, ?)"
-        #params = (username, password)
-
-        # Logging configuration
-        logging.basicConfig(filename='app.log', level=logging.INFO)
 
         # Log username and password
         logging.info(f"Username: {username}, Password: {password}")
@@ -109,11 +115,12 @@ def register():
         cursor = conn.cursor()
         
         try:
-            # Permette di esequire più statement come ');DELETE FROM users WHERE 1=1; INSERT INTO users VALUES ('sei stato','fregato') --
-            cursor.executescript(query)
-
-            # Esecuzione corretta perché evita l'esecuzione di più statament
-            #cursor.execute(query, params)
+            if safe_mode:
+                # Esecuzione corretta perché evita l'esecuzione di più statament
+                cursor.execute(query, params)
+            else :
+                # Permette di esequire più statement come ');DELETE FROM users WHERE 1=1; INSERT INTO users VALUES ('sei stato','fregato') --
+                cursor.executescript(query)
 
             conn.commit()
             conn.close()
@@ -133,38 +140,65 @@ def login():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
-        
+
         conn = sqlite3.connect("file:preCC_SQL_injection.db?mode=ro", uri=True)
         cursor = conn.cursor()
 
-        #query = 'SELECT * FROM users WHERE username = ? AND password = ?', (username, password)
-        query = "SELECT * FROM users WHERE username = '" + username + "' AND password = '" + password + "'"
+        logging.info(f"Safe_mode: {safe_mode}")
 
-        # Logging configuration
-        logging.basicConfig(filename='app.log', level=logging.INFO)
+        if safe_mode:
+                # Prepared Statement per evitare SQL Injection
+                query = 'SELECT * FROM users WHERE username = ? AND password = ?'
+                params = (username, password)
+
+        query = "SELECT * FROM users WHERE username = '" + username + "' AND password = '" + password + "'"
 
         # Log username and password
         logging.info(f"Username: {username}, Password: {password}")
 
-        cursor.execute(query)
-        user = cursor.fetchone()
-        conn.close()
+        try:
+            if safe_mode:
+                cursor.execute(query, params)
+            else:
+                cursor.execute(query)
+
+            user = cursor.fetchone()
+            conn.close()
+
+            logging.info(f"User: {user}")
         
-        if user:
-            session['username'] = username
-            flash('Login effettuato con successo!', 'success')
-            return render_template('index.html')
-        else:
+            if user is not None:
+                session['username'] = username
+                flash('Login effettuato con successo!', 'success')
+                
+                if username == 'admin':
+                    session['admin'] = True
+            else : 
+                flash('Nome utente o password errati.', 'danger')
+        
+        except Exception as e:
+            conn.close()
+            print('Sqlite3 error : ' + str(e))
             flash('Nome utente o password errati.', 'danger')
-            return render_template('index.html')
     
     return render_template('index.html')
+
+@app.route('/toggle_mode', methods=['POST'])
+def toggle_mode():
+    data = request.json
+    safe_mode = data['adminMode']
+    logging.info(f"Safe mode: {safe_mode}")
+    return jsonify(success=True)
+
 
 @app.route('/logout', methods=['GET'])
 def logout():
     session.pop('username', None)
+    session.pop('admin', None)
     flash('Logout effettuato con successo.', 'success')
     return render_template('index.html')
 
 if __name__ == '__main__':
+    # Logging configuration
+    logging.basicConfig(filename='app.log', level=logging.INFO)
     app.run(debug=True)

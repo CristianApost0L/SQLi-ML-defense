@@ -92,7 +92,8 @@ player_data = [["Giulia", "1"],
 
 
 user_data = [["salvatoreabello@gmail.com", "ADNSKNFNkan"],
-                ["cristian@gmail.com", "QNNEWJ0J9jojq"]]
+                ["cristian@gmail.com", "QNNEWJ0J9jojq"],
+                ["admin","unadminsolitario1234"]]
 
 ranking_data = [
     ["20", "Loldemort", "2", "2"],
