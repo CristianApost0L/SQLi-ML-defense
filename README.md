@@ -36,4 +36,4 @@ Run the Flask application with the following command:
 python app.py
 ```
 
-Open your browser and follow the link  [http://localhost:3000] (http://localhost:3000).
+Open your browser and follow the link  [http://localhost:5000] (http://localhost:5000).
