@@ -43,17 +43,13 @@ def search():
         flash('Tipo di ricerca non valido.', 'danger')
         return redirect(url_for('index'))
 
-    # Logging configuration
-    logging.basicConfig(filename='ml.log', level=logging.INFO)
-    
-    logging.info(f" Query: {query}")
-
-    res = ml.prediction(query)
-
-    logging.info(f" Status query: {res}")
-    
     conn = sqlite3.connect("file:preCC_SQL_injection.db?mode=ro", uri=True) # inizializzazione della connessione con il database
     cursor = conn.cursor() # ci permette di eseguire la query nel nostro DB in modalità di sola lettura
+
+    with open('./ML/output.txt', 'a') as file:
+    # Scrivi una stringa nel file
+        file.write(f'Query: {query}\n')
+        file.write(f'Predicted: {ml.prediction(query)}\n')
 
     try:
         cursor.execute(query) # esecuzione della query
@@ -92,7 +88,6 @@ def search():
 def register():
 
     if request.method == 'POST':
-
         
         username = request.form['username']
         password = request.form['password']
@@ -105,17 +100,10 @@ def register():
         #params = (username, password)
 
         # Logging configuration
-        logging.basicConfig(filename='ml.log', level=logging.INFO)
+        logging.basicConfig(filename='app.log', level=logging.INFO)
 
         # Log username and password
         logging.info(f"Username: {username}, Password: {password}")
-
-        # Query execution
-        logging.info(f"Query: {query}")
-
-        res = ml.prediction(query)
-
-        logging.info(f" Status query: {res}")
 
         conn = sqlite3.connect("file:preCC_SQL_injection.db", uri=True)
         cursor = conn.cursor()
@@ -157,13 +145,6 @@ def login():
 
         # Log username and password
         logging.info(f"Username: {username}, Password: {password}")
-
-        # Query execution
-        logging.info(f"Query: {query}")
-
-        res = ml.prediction(str(query))
-
-        logging.info(f" Status query: {res}")
 
         cursor.execute(query)
         user = cursor.fetchone()
