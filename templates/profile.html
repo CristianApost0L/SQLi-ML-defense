@@ -6,8 +6,8 @@
     <title>User Profile</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -16,11 +16,16 @@
         }
         .profile-card {
             background-color: #fff;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
             text-align: center;
-            width: 350px;
+            width: 400px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .profile-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 15px 35px rgba(0, 0, 0, 0.2);
         }
         .profile-card img {
             border-radius: 50%;
@@ -28,17 +33,21 @@
             height: 150px;
             object-fit: cover;
             margin-bottom: 20px;
-            border: 4px solid #007BFF;
+            border: 5px solid #007BFF;
+            transition: border-color 0.3s ease;
+        }
+        .profile-card img:hover {
+            border-color: #0056b3;
         }
         .profile-card h2 {
             margin: 0;
-            font-size: 26px;
+            font-size: 28px;
             color: #333;
             margin-bottom: 10px;
         }
         .profile-card p {
             color: #666;
-            font-size: 14px;
+            font-size: 16px;
             margin-bottom: 20px;
         }
         .profile-card .upload-btn-wrapper {
@@ -47,16 +56,17 @@
             display: inline-block;
         }
         .profile-card .upload-btn {
-            background-color: #007BFF;
+            background: linear-gradient(135deg, #007BFF, #0056b3);
             color: white;
-            padding: 10px 20px;
+            padding: 12px 25px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             font-size: 16px;
+            transition: background 0.3s ease;
         }
         .profile-card .upload-btn:hover {
-            background-color: #0056b3;
+            background: linear-gradient(135deg, #0056b3, #003f7f);
         }
         .profile-card .upload-btn-wrapper input[type=file] {
             font-size: 100px;
@@ -69,12 +79,13 @@
         .profile-card button.secondary-btn {
             background-color: #6c757d;
             color: white;
-            padding: 10px 20px;
+            padding: 12px 25px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             margin-top: 20px;
             font-size: 16px;
+            transition: background 0.3s ease;
         }
         .profile-card button.secondary-btn:hover {
             background-color: #5a6268;
@@ -83,6 +94,18 @@
             margin-top: 10px;
             color: #007BFF;
             font-size: 14px;
+        }
+        .profile-card .social-icons {
+            margin-top: 20px;
+        }
+        .profile-card .social-icons a {
+            color: #007BFF;
+            font-size: 24px;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+        .profile-card .social-icons a:hover {
+            color: #0056b3;
         }
     </style>
 </head>
@@ -94,7 +117,6 @@
             <img src="https://via.placeholder.com/150" alt="Default Profile Picture">
         {% endif %}
         <h2>{{ username }}</h2>
-        <p>Welcome to your profile page!</p>
         <form action="/profile/{{ username }}" method="POST" enctype="multipart/form-data">
             <div class="upload-btn-wrapper">
                 <button class="upload-btn">Choose Profile Picture</button>
@@ -104,6 +126,11 @@
             <button type="submit" class="secondary-btn">Upload New Profile Picture</button>
         </form>
         <button onclick="window.location.href='/'" class="secondary-btn">Go to Home Page</button>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
     </div>
 
     <script>
@@ -112,5 +139,6 @@
             document.getElementById('file-name').textContent = fileName;
         }
     </script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </body>
 </html>

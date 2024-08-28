@@ -11,29 +11,74 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         footer {
             margin-top: auto;
+            background-color: #f8f9fa;
+            padding: 10px 0;
         }
         .custom-control-label span {
             font-size: 1rem;
             font-weight: 500;
             color: #333;
         }
-
         .custom-control-label .fas {
             font-size: 1.2rem;
-            color: #007bff; /* Aggiunge un colore distintivo all'icona */
+            color: #007bff;
         }
-
         .nav-item .custom-switch {
             display: flex;
             align-items: center;
         }
-
         .custom-switch .custom-control-input:checked ~ .custom-control-label::before {
             background-color: #007bff;
             border-color: #007bff;
+        }
+        .navbar {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .navbar-brand img {
+            border-radius: 50%;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #007BFF, #0056b3);
+            border: none;
+            transition: background 0.3s ease;
+        }
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #0056b3, #003f7f);
+        }
+        .btn-secondary {
+            background: linear-gradient(135deg, #6c757d, #5a6268);
+            border: none;
+            transition: background 0.3s ease;
+        }
+        .btn-secondary:hover {
+            background: linear-gradient(135deg, #5a6268, #4e555b);
+        }
+        .alert {
+            border-radius: 10px;
+        }
+        .modal-content {
+            border-radius: 15px;
+        }
+        .form-control {
+            border-radius: 5px;
+        }
+        .list-group-item {
+            border: none;
+            border-bottom: 1px solid #ddd;
+        }
+        .list-group-item:last-child {
+            border-bottom: none;
+        }
+        .list-group-item .row > .col {
+            font-weight: 500;
+        }
+        .container {
+            margin-bottom: 2rem; /* Add this line */
         }
     </style>
 </head>
@@ -55,7 +100,7 @@
                             <input type="checkbox" class="custom-control-input" id="modeSwitch" onchange="toggleMode()">
                             <label class="custom-control-label" for="modeSwitch">
                                 <span class="d-inline-flex align-items-center">
-                                    <i class="fas fa-user-shield mr-2"></i> <!-- Aggiungi un'icona -->
+                                    <i class="fas fa-user-shield mr-2"></i>
                                     Safe Mode
                                 </span>
                             </label>
@@ -64,7 +109,7 @@
                 {% endif %}
                 <li class="nav-item">
                     <button type="button" class="btn btn-primary mr-2" data-toggle="modal" data-target="#exampleModal">
-                        ℹ️
+                        i
                     </button>
                 </li>
                 {% if session.username %}
@@ -87,7 +132,6 @@
         </div>
     </nav>
 
-
     <div class="container mt-3">
         <!-- Flash messages -->
         {% with messages = get_flashed_messages(with_categories=true) %}
@@ -108,7 +152,7 @@
             </div>
             {% if session.username %}
                 <div class="form-group">
-                    <label for="searchTypeDropdown" class="sr-only">Tipo di ricerca:</label>
+                    <label for="searchTypeDropdown">Tipo di ricerca:</label>
                     <select class="form-control" id="searchTypeDropdown" onchange="setSearchType(this.value)">
                         <option value="teams">Teams</option>
                         <option value="players">Players</option>
@@ -248,7 +292,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="loginModalLabel">Login / Registrazione</h5>
+                    <h3 class="modal-title" id="loginModalLabel">Login / Registrazione</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -273,7 +317,11 @@
 
     <footer class="bg-light text-center py-3">
         <div class="container">
-            <p class="text-muted mb-0">&copy; 2024 - Security Homework</p>
+            <p class="text-muted mb-2">&copy; 2024 - Security Homework</p>
+            <p class="text-muted mb-2">
+                <a href="https://github.com/CristianApostol2002291/Security" target="_blank" class="text-decoration-none">View on GitHub</a>
+            </p>
+            <p class="text-muted mb-0">Last updated: August 2024</p>
         </div>
     </footer>
 
@@ -288,8 +336,9 @@
 
         function setSearchType(type) {
             document.getElementById('searchType').value = type;
-            localStorage.setItem('searchType', type); // Salva la scelta in localStorage
-            updateModalContent(type); // Aggiorna il contenuto del modal ℹ️
+            localStorage.setItem('searchType', type);// Salva la scelta in localStorage
+            document.getElementById('searchTypeDropdown').value = type;
+            updateModalContent(type);// Aggiorna il contenuto del modal info
         }
 
         function updateModalContent(type) {
@@ -388,6 +437,7 @@
             }
             document.getElementById('searchType').value = savedType;
             updateModalContent(savedType);
+            document.getElementById('searchTypeDropdown').value = savedType;
 
             let adminMode = localStorage.getItem('adminMode');
 
@@ -410,8 +460,6 @@
             //     deactivateAdminMode(); // Disattiva l'admin mode senza l'alert
             // }
         }
-
-
     </script>
 </body>
 </html>

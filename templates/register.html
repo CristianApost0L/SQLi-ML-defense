@@ -3,12 +3,40 @@
 <head>
     <title>Registrazione - CTF Community DB</title>
     <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
-
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .container {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #007BFF, #0056b3);
+            border: none;
+            transition: background 0.3s ease;
+        }
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #0056b3, #003f7f);
+        }
+        .alert {
+            border-radius: 10px;
+        }
+        .form-control {
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
     <div class="container mt-5">
-        <h1 class="display-4">Registrazione</h1>
+        <h1 class="display-4 ">Registrazione</h1>
         <!-- Flash messages -->
         {% with messages = get_flashed_messages(with_categories=true) %}
             {% if messages %}
@@ -32,8 +60,7 @@
             <button type="submit" class="btn btn-primary">Registrati</button>
         </form>
         <br>
-        <p>Hai già un account? <a href="/login">Accedi qui</a></p>
+        <p class="text-center">Hai già un account? <a href="/login">Accedi qui</a></p>
     </div>
-
 </body>
 </html>
