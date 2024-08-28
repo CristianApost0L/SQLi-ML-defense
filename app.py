@@ -16,10 +16,10 @@ app = Flask(__name__)
 app.secret_key = 'security_homework_tanto_è_lunga'  # Necessario per gestire le sessioni e i messaggi flash
 
 # Specifica che il server non è in modalità sicura
-safe_mode = False
+safe_mode = True
 
-# Specifica che il server è in modalità machine learning
-ml_mode = False
+# Varianile per mostrare l'attacco di second order
+second_order = True
 
 # Cartella dove verranno salvate le immagini di profilo
 UPLOAD_FOLDER = 'static/uploads/'
@@ -28,7 +28,7 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 # se siamo nella root verrà renderizzata la pagina di index
 @app.route('/')
 def home():
-    return render_template('index.html')
+    return render_template('index.html', safe_mode=safe_mode)
 
 
 @app.route('/favicon.ico')
@@ -106,7 +106,7 @@ def register():
         username = request.form['username']
         password = request.form['password']
         
-        if not safe_mode:
+        if safe_mode:
             # Prapeared Statement per evitare SQL Injection
             query = "INSERT INTO users (username, password) VALUES (?, ?)"
             params = (username, password)
@@ -128,7 +128,7 @@ def register():
                 file.write(f'Predicted: {ml.prediction(query)}\n')
         
         try:
-            if not safe_mode:
+            if safe_mode:
                 # Esecuzione corretta perché evita l'esecuzione di più statament
                 cursor.execute(query, params)
             else :
@@ -161,8 +161,8 @@ def login():
             # Prepared Statement per evitare SQL Injection
             query = "SELECT * FROM users WHERE username = ? AND password = ?"
             params = (username, password)
-
-        query = "SELECT * FROM users WHERE username = '" + username + "' AND password = '" + password + "'"
+        else:
+            query = "SELECT * FROM users WHERE username = '" + username + "' AND password = '" + password + "'"
 
         # Logging configuration
         logging.basicConfig(filename='app.log', level=logging.INFO)
@@ -172,7 +172,7 @@ def login():
 
         if safe_mode:
             with open('./ML/output.txt', 'a') as file:
-            # Scrivi una stringa nel file
+            # Scrive la predizione nel file
                 file.write(f'Query: {query}\n')
                 file.write(f'Predicted: {ml.prediction(query)}\n')
 
@@ -189,6 +189,7 @@ def login():
         
             if user is not None:
                 session['username'] = username
+                session['profile_pic'] = user[2]
                 flash('Login effettuato con successo!', 'success')
                 
                 if username == 'admin':
@@ -206,7 +207,6 @@ def login():
 @app.route('/toggle_mode', methods=['POST'])
 def toggle_mode():
     global safe_mode
-    global ml_mode
     data = request.json
     safe_mode = data.get('adminMode', False)
     session['adminMode'] = safe_mode
@@ -241,6 +241,9 @@ def profile(username):
                     # Salva il file nella directory 'static/uploads'
                     filepath = os.path.join('static/uploads', filename)
                     file.save(filepath)
+
+                    # Aggiorna la foto profilo dell'utente
+                    session['profile_pic'] = filename
                     
                     # Aggiorna il nome del file nel database
                     cursor.execute("UPDATE users SET profile_pic = ? WHERE username = ?", (filename, username))
@@ -248,20 +251,19 @@ def profile(username):
                 except sqlite3.OperationalError as e:
                     print(f"Database error: {e}")
                 
-    if safe_mode:
-        cursor.execute("SELECT username, profile_pic FROM users WHERE username = ?", (username,))
+    if safe_mode and not second_order:
+        cursor.execute("SELECT username FROM users WHERE username = ?", (username,))
     else:
-        # Per fare un attacco di tipo SQLi di secondo ordine è fondamentale avere una fare di registrazione correttamente implementata
-        query = "SELECT username, profile_pic FROM users WHERE username = '" + username + "'"
+        # Per fare un attacco di tipo SQLi di secondo ordine è fondamentale avere una fare di registrazione e di login correttamente implementata
+        query = "SELECT username FROM users WHERE username = '" + session['username'] + "'"
         cursor.execute(query)
 
     # Forzatura nella generazione del username
     users = cursor.fetchall()
-    username = ', '.join(user[0] for user in users)
-    profile_pics = users[0][1]
+    username = ' '.join(user[0] for user in users)
 
     if users:
-        return render_template('profile.html', username=username, profile_pic=profile_pics)
+        return render_template('profile.html', username=username, profile_pic=session['profile_pic'])
     else:
         return "User not found", 404
 

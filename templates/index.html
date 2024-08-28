@@ -69,7 +69,7 @@
                 </li>
                 {% if session.username %}
                 <li class="nav-item">
-                    <button type="button" class="btn btn-primary mr-2" data-toggle="modal" data-target="#logoutModal">
+                    <button type="button" class="btn btn-primary mr-2" data-toggle="modal" data-target="#logoutModal" onclick="logout()">
                         Logout
                     </button>
                 </li>
@@ -136,10 +136,10 @@
         {% if error %}
         <div class="alert alert-danger mt-4">
             <h2 class="text-center">
-                <strong style="font-family: 'Arial', sans-serif; font-weight: bold;">È esploso tutto!</strong>
+                <strong style="font-family: 'Arial', sans-serif; font-weight: bold;">Si è verificato un errore</strong>
             </h2>
             <br>
-            <strong>Errore: </strong>
+            <strong>Dettagli dell'errore:</strong>
             <br>
             <i>
                 {{ error }}
@@ -283,6 +283,9 @@
 
     <!-- Your JavaScript here -->
     <script>
+        
+        const serverSafeMode = {{ safe_mode | default(false) | tojson | safe }};
+
         function setSearchType(type) {
             document.getElementById('searchType').value = type;
             localStorage.setItem('searchType', type); // Salva la scelta in localStorage
@@ -348,6 +351,23 @@
             });
         }
 
+        function logout() {
+            // Rimuovi 'searchType' da localStorage
+            localStorage.removeItem('searchType');
+
+            // Effettua il logout
+            fetch('/logout', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    window.location.href = '/';
+                }
+            });
+        }
+
         function activateAdminMode() {
             // Aggiungi qui il codice per attivare la modalità Admin
             document.body.classList.add('admin-mode');
@@ -362,18 +382,25 @@
 
         window.onload = function () {
             let savedType = localStorage.getItem('searchType');
-            if (!savedType) {
+            if (savedType == null) {
                 savedType = 'teams'; // Valore predefinito
                 localStorage.setItem('searchType', savedType);
             }
             document.getElementById('searchType').value = savedType;
             updateModalContent(savedType);
 
-            const adminMode = localStorage.getItem('adminMode') === 'true';
-            if (!adminMode) {
-                adminMode = 'Off'; // Valore predefinito
+            let adminMode = localStorage.getItem('adminMode');
+
+            // Se non esiste in `localStorage`, imposta `adminMode` basato su `safe_mode`
+            if (adminMode === null) {
+                adminMode = serverSafeMode;
                 localStorage.setItem('adminMode', adminMode);
+            } else {
+                // Converti adminMode in booleano
+                adminMode = adminMode === 'true';
             }
+
+            // Aggiorna lo stato del checkbox in base a `adminMode`
             document.getElementById('modeSwitch').checked = adminMode;
 
             //  Debug stamp
