@@ -11,5 +11,8 @@
 *.png
 static/upload/
 
+# Ignore all .pyc files
+*.pyc
+
 # Ignore predictions
 ML/output.txt
