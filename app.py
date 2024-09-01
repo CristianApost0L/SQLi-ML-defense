@@ -15,10 +15,10 @@ app = Flask(__name__)
 app.secret_key = 'security_homework_tanto_è_lunga'  # Necessario per gestire le sessioni e i messaggi flash
 
 # Specifica che il server non è in modalità sicura
-safe_mode = True
+safe_mode = False
 
 # Variabile per mostrare l'attacco di second order
-second_order = True
+second_order = False
 
 # Cartella dove verranno salvate le immagini dei profili
 UPLOAD_FOLDER = 'static/uploads/'
