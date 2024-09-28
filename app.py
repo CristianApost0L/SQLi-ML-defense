@@ -2,30 +2,22 @@ from flask import Flask, request, render_template, flash, session, url_for, send
 import sqlite3
 import os
 import logging
-import ml # importazione del modello di machine learning
+import ml # Importazione del modello di machine learning
 
+# Dizionario contenente le descrizioni delle sfide
 flags = {
-            "0": """
-                    Identifica il numero di colonne della tabella 'teams' usando
-                    il trick dei NULLs.
-                """,
-            "1": """
-                    Trova il nome delle altre tabelle presente nel database.
-                """,
-            "2": """
-                    Trova il nome delle colonne della tabella 'players'.
-                """,
-            "3": """
-                    Con le informazioni trovate, fai una UNION SQL injection per
-                    ottenere i dati sui giocatori.
-                """,
-            "4": """Hai scoperto tutti gli utenti complimenti""",
-        }
+    "0": "Identifica il numero di colonne nella tabella 'teams' usando il trucco dei NULL.",
+    "1": "Trova i nomi delle altre tabelle nel database.",
+    "2": "Trova i nomi delle colonne nella tabella 'players'.",
+    "3": "Usando le informazioni trovate, esegui una SQL injection UNION per recuperare i dati dei giocatori.",
+    "4": "Congratulazioni, hai scoperto tutti gli utenti."
+}
 
+# Connessione al database SQLite
 conn = sqlite3.connect("preCC_SQL_injection.db")
 cursor = conn.cursor()
 
-# Legge tutte le query dal file queries.sql e le esegue
+# Leggi ed esegui tutte le query dal file queries.sql
 with open("sol/queries.sql", "r") as query_file:
     lines = query_file.readlines()
 
@@ -36,13 +28,13 @@ for line in lines:
     
     cursor.execute(query)
     
-    # Exec all queries and stamp the output on ./sol/i file
+    # Esegui tutte le query e salva l'output nei file ./sol/
     with open("sol/" + output_file, "w") as f:
         f.write(str(cursor.fetchall()))
 
 conn.close()
 
-# creazione di un dizionario con le soluzioni delle challenge
+# Crea un dizionario con le soluzioni delle sfide
 solves = {}
 for file in os.listdir("./sol"):
     with open("./sol/" + file) as f:
@@ -54,22 +46,22 @@ app.secret_key = 'security_homework_tanto_è_lunga'
 # Specifica che il server non è in modalità sicura
 safe_mode = False
 
-# Variabile per mostrare l'attacco di second order
+# Variabile per mostrare l'attacco di secondo ordine
 second_order = False
 
-# Cartella dove verranno salvate le immagini dei profili
+# Cartella dove verranno salvate le immagini del profilo
 UPLOAD_FOLDER = 'static/uploads/'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
-# se siamo nella root verrà renderizzata la pagina di index
+# Renderizza la pagina index quando si accede alla root
 @app.route('/')
 def home():
     return render_template('index.html', safe_mode=safe_mode)
 
-# dopo aver cliccato il bottone ricerca verrà reinderizzata la stessa pagina ed eseguita una query verso il DBMS
+# Esegui una query al DBMS dopo aver cliccato il pulsante di ricerca
 @app.route('/exec', methods=['POST'])
 def search():
-    # tipo di ricerca da effettuare, teams o players
+    # Tipo di ricerca da eseguire, teams o players
     search_type = request.form.get('searchType') 
 
     if search_type == 'teams':
@@ -80,70 +72,66 @@ def search():
         flash('Tipo di ricerca non valido.', 'danger')
         return redirect(url_for('index'))
     
-    # inizializzazione della connessione con il database in sola lettura
+    # Inizializza la connessione al database in modalità sola lettura
     conn = sqlite3.connect("file:preCC_SQL_injection.db?mode=ro", uri=True)
     cursor = conn.cursor()
 
-    # Logging configuration
+    # Configurazione del logging
     logging.basicConfig(filename='.log/app.log', level=logging.INFO)
     logging.info(f"Query: {query}")
 
     with open('.log/predictions.log', 'a') as file:
-        # Scrivi una stringa nel file
+        # Scrivi la query e la previsione nel file
         file.write(f'Query: {query}\n')
         file.write(f'Predicted: {ml.prediction(query)}\n')
 
     try:
-        cursor.execute(query) # esecuzione della query
-        results = cursor.fetchall() # caricamento del risultato della query in results
-        # Questa variabile conterrà una lista di tuple, dove ogni tupla rappresenta una riga del risultato della query. 
-        # Ogni elemento della tupla corrisponde a una colonna della tabella selezionata nella query.
+        cursor.execute(query) # Esegui la query
+        results = cursor.fetchall() # Carica il risultato della query in results
 
-        str_res = str(results)  # conversione della results in una stringa
+        str_res = str(results)  # Converte results in una stringa
 
-        cols = []   # colonne della nostra query
+        cols = []   # Colonne della nostra query
         if cursor.description:
-            # ricerca della colonne che dovranno essere stampate da cursor descriptor
+            # Recupera le colonne da stampare dal descrittore del cursore
             for name in cursor.description:
                 cols.append(name[0].upper())
 
-        # Serve solo per stampare il risultato della challange, ricerca le parole chivi dal dizionario solves, costruito precedentemente, su str_res
+        # Controlla se qualche valore in str_res è presente nel dizionario solves
         for key, value in solves.items():
-            # Se è stato trovato un valore in str_res presente in uno dei file in ./sol, il nome del file funge da indice nel file 
-            # flags.py per stampare la prossima challange
             if value in str_res:
                 return render_template('index.html', flag=flags[key].strip(), results=results, columns=cols)
         
-        conn.close() # chiusura della connessione al DB
+        conn.close() # Chiudi la connessione al database
 
-        # rendering della pagina index con tutti i risultati della query
+        # Renderizza la pagina index con i risultati della query
         return render_template('index.html', results=results, columns=cols) 
     
-    # se viene lanciata una eccezione da parte del DBMS, viene intercettata stampando anche su schermo l'eccezione
+    # Gestisci le eccezioni sollevate dal DBMS
     except Exception as e:
-        conn.close() #chiusura della connessione al database
+        conn.close() # Chiudi la connessione al database
         return render_template('index.html', error=str(e))
 
-# Endpoint per la registrazione
+# Endpoint per la registrazione degli utenti
 @app.route('/register', methods=['POST','GET'])
 def register():
 
-    # Se il metodo è POST, significa che l'utente ha inviato i dati del form di registrazione
+    # Se il metodo è POST, l'utente ha inviato il modulo di registrazione
     if request.method == 'POST':
 
         username = request.form['username']
         password = request.form['password']
         
         if safe_mode:
-            # Prapeared Statement per evitare SQL Injection
+            # Prepared Statement per prevenire SQL Injection
             query = "INSERT INTO users (username, password) VALUES (?, ?)"
             params = (username, password)
 
-            # Costruzione della query completa
+            # Costruisci la query completa
             query_completa = query.replace("?", "{}").format(*map(repr, params))
 
             with open('./ML/output.txt', 'a') as file:
-            # Scrive la predizione nel file
+                # Scrivi la previsione nel file
                 file.write(f'Query: {query_completa}\n')
                 file.write(f'Predicted: {ml.prediction(query_completa)}\n')
         else:
@@ -151,61 +139,61 @@ def register():
             query = "INSERT INTO users (username, password) VALUES ('" + username + "','" + password + "')"
 
             with open('./ML/output.txt', 'a') as file:
-            # Scrive la predizione nel file
+                # Scrivi la previsione nel file
                 file.write(f'Query: {query}\n')
                 file.write(f'Predicted: {ml.prediction(query)}\n')
 
-        # Logging configuration
+        # Configurazione del logging
         logging.basicConfig(filename='.log/app.log', level=logging.INFO)
-        # Log username and password
+        # Logga username e password
         logging.info(f"Username: {username}, Password: {password}")
 
-        conn = sqlite3.connect("file:preCC_SQL_injection.db", uri=True) # connessione al database
-        cursor = conn.cursor()  # cursore per eseguire le query
+        conn = sqlite3.connect("file:preCC_SQL_injection.db", uri=True) # Connetti al database
+        cursor = conn.cursor()  # Cursore per eseguire le query
         
         try:
             if safe_mode:
-                # Esecuzione corretta perché la query è un prepared statement
+                # Esegui correttamente perché la query è una prepared statement
                 cursor.execute(query, params)
-            else :
-                # Permette di esequire più statement come ');DELETE FROM users WHERE 1=1; INSERT INTO users VALUES ('sei stato','fregato') --
+            else:
+                # Permette di eseguire più istruzioni come ');DELETE FROM users WHERE 1=1; INSERT INTO users VALUES ('sei stato','fregato') --
                 cursor.executescript(query)
 
-            # Commit delle modifiche al database
+            # Conferma le modifiche al database
             conn.commit()
             conn.close()
-            flash('Registrazione completata con successo! Ora puoi effettuare il login.', 'success')
+            flash('Registrazione avvenuta con successo! Ora puoi effettuare il login.', 'success')
             return render_template('index.html') 
         
         except Exception as e:
-            # Se viene lanciata un'eccezione, viene stampata a schermo e il database viene chiuso
+            # Gestisci le eccezioni e chiudi il database
             conn.close()
-            print('Sqlite3 error : ' + str(e))
-            flash('Nome utente già esistente. Scegli un altro nome utente.', 'danger')
+            print('Errore Sqlite3 : ' + str(e))
+            flash('Username già esistente. Scegli un altro username.', 'danger')
     
     return render_template('register.html') 
 
-# Endpoint per il login
+# Endpoint per il login degli utenti
 @app.route('/login', methods=['POST','GET'])
 def login():
-    # Se il metodo è POST, significa che l'utente ha inviato i dati del form di login
+    # Se il metodo è POST, l'utente ha inviato il modulo di login
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
 
-        conn = sqlite3.connect("file:preCC_SQL_injection.db?mode=ro", uri=True) # connessione al database in sola lettura
-        cursor = conn.cursor() # cursore per eseguire le query
+        conn = sqlite3.connect("file:preCC_SQL_injection.db?mode=ro", uri=True) # Connetti al database in modalità sola lettura
+        cursor = conn.cursor() # Cursore per eseguire le query
 
         if safe_mode:
-            # Prepared Statement per evitare SQL Injection
+            # Prepared Statement per prevenire SQL Injection
             query = "SELECT * FROM users WHERE username = ? AND password = ?"
             params = (username, password)
 
-            # Costruzione della query completa
+            # Costruisci la query completa
             query_completa = query.replace("?", "{}").format(*map(repr, params))
 
             with open('./ML/output.txt', 'a') as file:
-            # Scrive la predizione nel file
+                # Scrivi la previsione nel file
                 file.write(f'Query: {query_completa}\n')
                 file.write(f'Predicted: {ml.prediction(query_completa)}\n')
         else:
@@ -213,50 +201,50 @@ def login():
             query = "SELECT * FROM users WHERE username = '" + username + "' AND password = '" + password + "'"
 
             with open('./ML/output.txt', 'a') as file:
-                # Scrive la predizione nel file
+                # Scrivi la previsione nel file
                 file.write(f'Query: {query}\n')
                 file.write(f'Predicted: {ml.prediction(query)}\n')
 
-        # Logging configuration
+        # Configurazione del logging
         logging.basicConfig(filename='.log/app.log', level=logging.INFO)
 
-        # Log username and password
+        # Logga username e password
         logging.info(f"Username: {username}, Password: {password}")
 
         try:
             if safe_mode:
-                # Esecuzione corretta perché la query è un prepared statement
+                # Esegui correttamente perché la query è una prepared statement
                 cursor.execute(query, params)
             else:
-                # Esecuzione della query vulnerabile a SQL Injection
+                # Esegui la query vulnerabile a SQL Injection
                 cursor.execute(query)
 
-            user = cursor.fetchone() # restituisce la prima riga del risultato della query
-            conn.close() # chiusura della connessione al database
+            user = cursor.fetchone() # Recupera la prima riga del risultato della query
+            conn.close() # Chiudi la connessione al database
 
             logging.info(f"User: {user}")
         
-            # Se l'utente è presente nel database, viene effetuato il login
+            # Se l'utente è presente nel database, effettua il login
             if user is not None:
                 session['username'] = user[0]
                 session['profile_pic'] = user[2]
-                flash('Login effettuato con successo!', 'success')
+                flash('Login avvenuto con successo!', 'success')
                 
-                # Se l'utente è l'amministratore, viene impostata la sessione admin
+                # Se l'utente è l'amministratore, imposta la sessione admin
                 if user[0] == 'admin':
                     session['admin'] = True
-            else : 
-                flash('Nome utente o password errati.', 'danger')
+            else: 
+                flash('Username o password non validi.', 'danger')
 
-        # Se viene lanciata un'eccezione, viene stampata a schermo e il database viene chiuso
+        # Gestisci le eccezioni e chiudi il database
         except Exception as e:
             conn.close()
-            print('Sqlite3 error : ' + str(e))
-            flash('Nome utente o password errati.', 'danger')
+            print('Errore Sqlite3 : ' + str(e))
+            flash('Username o password non validi.', 'danger')
     
     return render_template('index.html')
 
-# Endpoint per l'impostazione della modalità sicura
+# Endpoint per attivare/disattivare la modalità sicura
 @app.route('/toggle_mode', methods=['POST'])
 def toggle_mode():
     global safe_mode
@@ -264,30 +252,30 @@ def toggle_mode():
     safe_mode = data.get('adminMode', False)
     session['adminMode'] = safe_mode
 
-    # Logging configuration
+    # Configurazione del logging
     logging.basicConfig(filename='.log/app.log', level=logging.INFO)
     logging.info(f" Safe_mode: {safe_mode}")
     
     return jsonify(success=True)
 
-# Endpoint per il logout
+# Endpoint per il logout degli utenti
 @app.route('/logout', methods=['GET'])
 def logout():
     session.pop('username', None)
     session.pop('admin', None)
-    flash('Logout effettuato con successo.', 'success')
+    flash('Logout avvenuto con successo.', 'success')
     return render_template('index.html')
 
-# Endpoint per la visualizzazione del profilo
+# Endpoint per visualizzare il profilo utente
 @app.route('/profile/<username>', methods=['GET', 'POST'])
 def profile(username):
 
-    conn = sqlite3.connect("file:preCC_SQL_injection.db", uri=True) # connessione al database
-    cursor = conn.cursor() # cursore per eseguire le query
+    conn = sqlite3.connect("file:preCC_SQL_injection.db", uri=True) # Connetti al database
+    cursor = conn.cursor() # Cursore per eseguire le query
 
-    # Se il metodo è POST, significa che l'utente ha inviato i dati del form di modifica del profilo
+    # Se il metodo è POST, l'utente ha inviato il modulo di aggiornamento del profilo
     if request.method == 'POST':
-        # Gestione del caricamento della foto profilo
+        # Gestisci il caricamento dell'immagine del profilo
         if 'profile_pic' in request.files:
             file = request.files['profile_pic']
             if file and file.filename != '':
@@ -297,58 +285,58 @@ def profile(username):
                     filepath = os.path.join('static/uploads', filename)
                     file.save(filepath)
 
-                    # Aggiorna la foto profilo dell'utente
+                    # Aggiorna l'immagine del profilo dell'utente
                     session['profile_pic'] = filename
                     
                     # Aggiorna il nome del file nel database
                     cursor.execute("UPDATE users SET profile_pic = ? WHERE username = ?", (filename, username))
                     conn.commit()
                     conn.close()
-                    flash('Foto profilo aggiornata con successo!', 'success')
+                    flash('Immagine del profilo aggiornata con successo!', 'success')
 
-                # Se viene lanciata un'eccezione, viene stampata a schermo e il database viene chiuso
+                # Gestisci le eccezioni e chiudi il database
                 except sqlite3.OperationalError as e:
-                    print(f"Database error: {e}")
+                    print(f"Errore del database: {e}")
 
-    try :   
+    try:   
         if safe_mode and not second_order:
-            # Prepared Statement per evitare SQL Injection
+            # Prepared Statement per prevenire SQL Injection
             query = "SELECT username FROM users WHERE username = ?"
             params = (username,)
             
-            # Costruzione della query completa
+            # Costruisci la query completa
             query_completa = query.replace("?", "{}").format(*map(repr, params))
 
             with open('./ML/output.txt', 'a') as file:
-            # Scrive la predizione nel file
+                # Scrivi la previsione nel file
                 file.write(f'Query: {query_completa}\n')
                 file.write(f'Predicted: {ml.prediction(query_completa)}\n')
 
             cursor.execute(query, params)
         else:
-            # Per fare un attacco di tipo SQLi di secondo ordine è fondamentale avere una fare di registrazione e di login correttamente implementate
+            # Per un attacco SQLi di secondo ordine, è essenziale avere una fase di registrazione e login correttamente implementata
             query = "SELECT username FROM users WHERE username = '" + session['username'] + "'"
             cursor.execute(query)
 
             with open('./ML/output.txt', 'a') as file:
-            # Scrive la predizione nel file
+                # Scrivi la previsione nel file
                 file.write(f'Query: {query}\n')
                 file.write(f'Predicted: {ml.prediction(query)}\n')
 
-    # Se viene lanciata un'eccezione, viene stampata a schermo e il database viene chiuso
+    # Gestisci le eccezioni e chiudi il database
     except Exception as e:
-        print('Sqlite3 error : ' + str(e))
+        print('Errore Sqlite3 : ' + str(e))
         conn.close()
-        return "User not found", 404
+        return "Utente non trovato", 404
 
-    # Forzatura nella generazione del username
+    # Forza la generazione del nome utente
     users = cursor.fetchall()
     username = ' '.join(user[0] for user in users)
 
     if users:
         return render_template('profile.html', username=username, profile_pic=session['profile_pic'])
     else:
-        return "User not found", 404
+        return "Utente non trovato", 404
 
 if __name__ == '__main__':
     app.run(debug=True)

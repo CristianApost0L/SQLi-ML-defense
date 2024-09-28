@@ -6,33 +6,32 @@ import re
 
 app = Flask(__name__)
 
-# Load the saved models
-# Load models from the 'models/Bow' directory
-gbm_bow = joblib.load('../models/Bow/gbm_model.pkl')
-ada_bow = joblib.load('../models/Bow/ada_model.pkl')
-xgb_bow = joblib.load('../models/Bow/xgb_model.pkl')
-lgbm_bow = joblib.load('../models/Bow/lgbm_model.pkl')
-log_reg_bow = joblib.load('../models/Bow/log_reg_model.pkl')
-rf_bow = joblib.load('../models/Bow/rf_model.pkl')
-knn_bow = joblib.load('../models/Bow/knn_model.pkl')
-dt_bow = joblib.load('../models/Bow/dt_model.pkl')
-stacking_bow = joblib.load('../models/Bow/stacking_model.pkl')
+feature_extraction = 'BoW'
 
-# Load models from the 'models/ITF-IDF' directory
-gbm_tfidf = joblib.load('../models/ITF-IDF/gbm_model.pkl')
-ada_tfidf = joblib.load('../models/ITF-IDF/ada_model.pkl')
-xgb_tfidf = joblib.load('../models/ITF-IDF/xgb_model.pkl')
-lgbm_tfidf = joblib.load('../models/ITF-IDF/lgbm_model.pkl')
-log_reg_tfidf = joblib.load('../models/ITF-IDF/log_reg_model.pkl')
-rf_tfidf = joblib.load('../models/ITF-IDF/rf_model.pkl')
-knn_tfidf = joblib.load('../models/ITF-IDF/knn_model.pkl')
-dt_tfidf = joblib.load('../models/ITF-IDF/dt_model.pkl')
-stacking_tfidf = joblib.load('../models/ITF-IDF/stacking_model.pkl')
-
-# Load the imputer and vectorizer
-imputer = joblib.load('../models/Bow/imputer.pkl')
-vectorizer_bow = joblib.load('../models/Bow/vectorizer.pkl')
-vectorizer_tfidf = joblib.load('../models/ITF-IDF/vectorizer.pkl')
+if feature_extraction == 'BoW':
+    gbm = joblib.load('./models/BoW/gbm_model.pkl')
+    ada = joblib.load('./models/BoW/ada_model.pkl')
+    xgb = joblib.load('./models/BoW/xgb_model.pkl')
+    lgbm = joblib.load('./models/BoW/lgbm_model.pkl')
+    log_reg = joblib.load('./models/BoW/log_reg_model.pkl')
+    rf = joblib.load('./models/BoW/rf_model.pkl')
+    knn = joblib.load('./models/BoW/knn_model.pkl')
+    dt = joblib.load('./models/BoW/dt_model.pkl')
+    stacking = joblib.load('./models/BoW/stacking_model.pkl')
+    imputer = joblib.load('./models/BoW/imputer.pkl')
+    vectorizer = joblib.load('./models/BoW/vectorizer.pkl')
+elif feature_extraction == 'ITF-IDF':
+    gbm = joblib.load('./models/ITF-IDF/gbm_model.pkl')
+    ada = joblib.load('./models/ITF-IDF/ada_model.pkl')
+    xgb = joblib.load('./models/ITF-IDF/xgb_model.pkl')
+    lgbm = joblib.load('./models/ITF-IDF/lgbm_model.pkl')
+    log_reg = joblib.load('./models/ITF-IDF/log_reg_model.pkl')
+    rf = joblib.load('./models/ITF-IDF/rf_model.pkl')
+    knn = joblib.load('./models/ITF-IDF/knn_model.pkl')
+    dt = joblib.load('./models/ITF-IDF/dt_model.pkl')
+    stacking = joblib.load('./models/ITF-IDF/stacking_model.pkl')
+    imputer = joblib.load('./models/ITF-IDF/imputer.pkl')
+    vectorizer = joblib.load('./models/ITF-IDF/vectorizer.pkl')
 
 # Combined feature extraction function
 def extract_features(query):
@@ -67,20 +66,20 @@ def prediction(query):
     query_features_imputed = imputer.transform(query_features)
     
     # Trasforma il testo della query in BoW
-    query_bow = vectorizer_bow.transform([query])
+    query_bow = vectorizer.transform([query])
     
     # Combina le caratteristiche numeriche e testuali
     query_features_combined = hstack((query_features_imputed, query_bow)).tocsr()
 
     # Predizioni dai modelli
     predictions = {
-        'Gradient Boosting Machine': gbm_bow.predict(query_features_combined)[0],
-        'AdaBoost': ada_bow.predict(query_features_combined)[0],
-        'XGBoost': xgb_bow.predict(query_features_combined)[0],
-        'LightGBM': lgbm_bow.predict(query_features_combined)[0],
-        'Logistic Regression': log_reg_bow.predict(query_features_combined)[0],
-        'Random Forest': rf_bow.predict(query_features_combined)[0],
-        'Stacking Classifier': stacking_bow.predict(query_features_combined)[0]
+        'Gradient Boosting Machine': gbm.predict(query_features_combined)[0],
+        'AdaBoost': ada.predict(query_features_combined)[0],
+        'XGBoost': xgb.predict(query_features_combined)[0],
+        'LightGBM': lgbm.predict(query_features_combined)[0],
+        'Logistic Regression': log_reg.predict(query_features_combined)[0],
+        'Random Forest': rf.predict(query_features_combined)[0],
+        'Stacking Classifier': stacking.predict(query_features_combined)[0]
     }
 
     if predictions['Stacking Classifier'] == 1:
