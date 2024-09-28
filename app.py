@@ -1,18 +1,55 @@
 from flask import Flask, request, render_template, flash, session, url_for, send_from_directory, redirect, jsonify
 import sqlite3
 import os
-from flags import flags
 import logging
 import ml # importazione del modello di machine learning
 
-# creazione di un dizionario dalla directory sol, sono le challange da fare
+flags = {
+            "0": """
+                    Identifica il numero di colonne della tabella 'teams' usando
+                    il trick dei NULLs.
+                """,
+            "1": """
+                    Trova il nome delle altre tabelle presente nel database.
+                """,
+            "2": """
+                    Trova il nome delle colonne della tabella 'players'.
+                """,
+            "3": """
+                    Con le informazioni trovate, fai una UNION SQL injection per
+                    ottenere i dati sui giocatori.
+                """,
+            "4": """Hai scoperto tutti gli utenti complimenti""",
+        }
+
+conn = sqlite3.connect("preCC_SQL_injection.db")
+cursor = conn.cursor()
+
+# Legge tutte le query dal file queries.sql e le esegue
+with open("sol/queries.sql", "r") as query_file:
+    lines = query_file.readlines()
+
+for line in lines:
+    query, _, output_file = line.partition("--")
+    query = query.strip()
+    output_file = output_file.strip()
+    
+    cursor.execute(query)
+    
+    # Exec all queries and stamp the output on ./sol/i file
+    with open("sol/" + output_file, "w") as f:
+        f.write(str(cursor.fetchall()))
+
+conn.close()
+
+# creazione di un dizionario con le soluzioni delle challenge
 solves = {}
 for file in os.listdir("./sol"):
     with open("./sol/" + file) as f:
         solves[file] = f.read()
 
 app = Flask(__name__)
-app.secret_key = 'security_homework_tanto_è_lunga'  # Necessario per gestire le sessioni e i messaggi flash
+app.secret_key = 'security_homework_tanto_è_lunga'
 
 # Specifica che il server non è in modalità sicura
 safe_mode = False
@@ -29,38 +66,29 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 def home():
     return render_template('index.html', safe_mode=safe_mode)
 
-# icona del sito
-@app.route('/favicon.ico')
-def favicon():
-    return send_from_directory(os.path.join(app.root_path, 'static'), 'favicon.ico', mimetype='image/vnd.microsoft.icon')
-
-
-# per ogni root /exec, dopo aver cliccato il bottone ricerca, verrà reinderizzata la stessa pagina ed eseguita una query verso il DBMS
+# dopo aver cliccato il bottone ricerca verrà reinderizzata la stessa pagina ed eseguita una query verso il DBMS
 @app.route('/exec', methods=['POST'])
 def search():
-
-    search_type = request.form.get('searchType') # tipo di ricerca da effettuare, teams o players
+    # tipo di ricerca da effettuare, teams o players
+    search_type = request.form.get('searchType') 
 
     if search_type == 'teams':
-        # Query da eseguire, si compone di una SELECT sulla tabella Teams con una ricerca basata sul nome dato in input dall'utente.
         query = "SELECT id, name, points FROM teams WHERE name = '" + request.form['query'] + "'"
     elif search_type == 'players':
-        # Query da eseguire, si compone di una SELECT sulla tabella Players, Teams e Ranking con una ricerca basata sul nome del player dato in input dall'utente.
         query = "SELECT players.username, teams.name, ranking.position FROM ranking JOIN players JOIN teams WHERE  ranking.playerID = player.ID AND ranking.teamID = team.id AND players.teamID == teams.id AND name = '" + request.form['query'] + "'"
     else:
-        # Se il tipo di ricerca non è valido, verrà stampato un messaggio di errore e l'utente verrà reindirizzato alla pagina principale
         flash('Tipo di ricerca non valido.', 'danger')
         return redirect(url_for('index'))
-
-    conn = sqlite3.connect("file:preCC_SQL_injection.db?mode=ro", uri=True) # inizializzazione della connessione con il database in sola lettura
-
-    cursor = conn.cursor() # ci permette di eseguire la query nel nostro DB
+    
+    # inizializzazione della connessione con il database in sola lettura
+    conn = sqlite3.connect("file:preCC_SQL_injection.db?mode=ro", uri=True)
+    cursor = conn.cursor()
 
     # Logging configuration
-    logging.basicConfig(filename='app.log', level=logging.INFO)
+    logging.basicConfig(filename='.log/app.log', level=logging.INFO)
     logging.info(f"Query: {query}")
 
-    with open('./ML/output.txt', 'a') as file:
+    with open('.log/predictions.log', 'a') as file:
         # Scrivi una stringa nel file
         file.write(f'Query: {query}\n')
         file.write(f'Predicted: {ml.prediction(query)}\n')
@@ -128,7 +156,7 @@ def register():
                 file.write(f'Predicted: {ml.prediction(query)}\n')
 
         # Logging configuration
-        logging.basicConfig(filename='app.log', level=logging.INFO)
+        logging.basicConfig(filename='.log/app.log', level=logging.INFO)
         # Log username and password
         logging.info(f"Username: {username}, Password: {password}")
 
@@ -190,7 +218,7 @@ def login():
                 file.write(f'Predicted: {ml.prediction(query)}\n')
 
         # Logging configuration
-        logging.basicConfig(filename='app.log', level=logging.INFO)
+        logging.basicConfig(filename='.log/app.log', level=logging.INFO)
 
         # Log username and password
         logging.info(f"Username: {username}, Password: {password}")
@@ -237,7 +265,7 @@ def toggle_mode():
     session['adminMode'] = safe_mode
 
     # Logging configuration
-    logging.basicConfig(filename='app.log', level=logging.INFO)
+    logging.basicConfig(filename='.log/app.log', level=logging.INFO)
     logging.info(f" Safe_mode: {safe_mode}")
     
     return jsonify(success=True)
