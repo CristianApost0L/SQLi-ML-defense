@@ -1,5 +1,3 @@
-# README
-
 ## Install Virtual Environment
 We use a module named virtualenv which is a tool to create isolated Python environments. virtualenv creates a folder that contains all the necessary executables to use the packages that a Python project would need.
 
@@ -28,7 +26,26 @@ Once the virtual environment is activated, install Flask:
 pip install Flask
 ```
 
-### Start Application
+## Install Required Libraries
+Install the necessary libraries for the project:
+
+```c
+pip install re joblib numpy pandas texttable matplotlib scipy xgboost lightgbm scikit-learn
+```
+
+## Build ML Models
+
+To build the models with BoW, run the following script:
+
+```c
+python SQLi_detection_BoW.ipynb
+```
+otherwise:
+```c
+python SQLi_detection_TF_IDF.ipynb
+```
+
+## Start Application
 
 Run the Flask application with the following command:
 

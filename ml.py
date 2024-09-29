@@ -18,20 +18,18 @@ if feature_extraction == 'BoW':
     knn = joblib.load('./models/BoW/knn_model.pkl')
     dt = joblib.load('./models/BoW/dt_model.pkl')
     stacking = joblib.load('./models/BoW/stacking_model.pkl')
-    imputer = joblib.load('./models/BoW/imputer.pkl')
     vectorizer = joblib.load('./models/BoW/vectorizer.pkl')
-elif feature_extraction == 'ITF-IDF':
-    gbm = joblib.load('./models/ITF-IDF/gbm_model.pkl')
-    ada = joblib.load('./models/ITF-IDF/ada_model.pkl')
-    xgb = joblib.load('./models/ITF-IDF/xgb_model.pkl')
-    lgbm = joblib.load('./models/ITF-IDF/lgbm_model.pkl')
-    log_reg = joblib.load('./models/ITF-IDF/log_reg_model.pkl')
-    rf = joblib.load('./models/ITF-IDF/rf_model.pkl')
-    knn = joblib.load('./models/ITF-IDF/knn_model.pkl')
-    dt = joblib.load('./models/ITF-IDF/dt_model.pkl')
-    stacking = joblib.load('./models/ITF-IDF/stacking_model.pkl')
-    imputer = joblib.load('./models/ITF-IDF/imputer.pkl')
-    vectorizer = joblib.load('./models/ITF-IDF/vectorizer.pkl')
+elif feature_extraction == 'TF-IDF':
+    gbm = joblib.load('./models/TF-IDF/gbm_model.pkl')
+    ada = joblib.load('./models/TF-IDF/ada_model.pkl')
+    xgb = joblib.load('./models/TF-IDF/xgb_model.pkl')
+    lgbm = joblib.load('./models/TF-IDF/lgbm_model.pkl')
+    log_reg = joblib.load('./models/TF-IDF/log_reg_model.pkl')
+    rf = joblib.load('./models/TF-IDF/rf_model.pkl')
+    knn = joblib.load('./models/TF-IDF/knn_model.pkl')
+    dt = joblib.load('./models/TF-IDF/dt_model.pkl')
+    stacking = joblib.load('./models/TF-IDF/stacking_model.pkl')
+    vectorizer = joblib.load('./models/TF-IDF/vectorizer.pkl')
 
 # Combined feature extraction function
 def extract_features(query):
@@ -59,17 +57,14 @@ def extract_features(query):
     return pd.DataFrame([features])
 
 def prediction(query):
-    # Estrai le caratteristiche dalla query
+    # Estrae le caratteristiche dalla query
     query_features = extract_features(query)
-    
-    # Gestisci i valori mancanti nelle caratteristiche della singola query utilizzando lo stesso imputer
-    query_features_imputed = imputer.transform(query_features)
     
     # Trasforma il testo della query in BoW
     query_bow = vectorizer.transform([query])
     
     # Combina le caratteristiche numeriche e testuali
-    query_features_combined = hstack((query_features_imputed, query_bow)).tocsr()
+    query_features_combined = hstack((query_features, query_bow)).tocsr()
 
     # Predizioni dai modelli
     predictions = {
