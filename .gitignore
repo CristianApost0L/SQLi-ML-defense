@@ -7,12 +7,11 @@
 # Ignore all .sqlite3 files
 *.db
 
-# Ignore all images
-*.png
+# Ignore all images uploaded
 static/upload/
 
 # Ignore all .pyc files
 *.pyc
 
-# Ignore predictions
-ML/output.txt
+# Ignore models
+*.pkl
