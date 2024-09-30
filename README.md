@@ -53,20 +53,51 @@ pip install Flask
 Install the necessary libraries for the machine learning models and SQL injection detection:
 
 ```bash
-pip install re joblib numpy pandas texttable matplotlib scipy xgboost lightgbm scikit-learn
+pip install joblib numpy pandas texttable matplotlib scipy xgboost lightgbm scikit-learn
 ```
 
 ## Build Machine Learning Models
 
-To train the models using Bag of Words **(BoW)**, run:
+### Install Jupyter Notebook
+
+If you haven't already installed Jupyter Notebook, you can do so by running:
 
 ```bash
-python SQLi_detection_BoW.ipynb
+pip install notebook
 ```
-Alternatively, for **TF-IDF**:
-```bash
-python SQLi_detection_TF_IDF.ipynb
-```
+
+### Running the Notebooks
+To train the models using Jupyter Notebooks, follow these steps:
+
+1. Start Jupyter Notebook
+    Navigate to the project directory in the terminal and start Jupyter:
+  
+    ```bash
+    jupyter notebook
+    ```
+    This will open a new tab in your web browser, where you can navigate through the project files.
+
+2. Open and Run the Notebooks
+    In the Jupyter interface, find and open the notebook you want to run:
+
+    - To train the models using Bag of Words (BoW), open and run ***SQLi_detection_BoW.ipynb***.
+   
+    - Alternatively, to train the models using TF-IDF, open and run ***SQLi_detection_TF_IDF.ipynb***.
+
+### Running Notebooks from the Command Line
+Alternatively, you can run the notebooks directly from the command line:
+
+- For Bag of Words **(BoW)**:
+  
+    ```bash
+    python -m ipykernel_launcher SQLi_detection_BoW.ipynb
+    ```
+
+- For **TF-IDF**:
+
+    ```bash
+    python -m ipykernel_launcher SQLi_detection_BoW.ipynb
+    ```
 
 ## Start Application
 
