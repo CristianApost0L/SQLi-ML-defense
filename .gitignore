@@ -15,3 +15,5 @@ static/upload/
 
 # Ignore models
 *.pkl
+
+.venv/
